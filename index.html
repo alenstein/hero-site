@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>thetha ai - accessibility first</title>
   
-  <meta name="description" content="Thetha AI: Breaking the double isolation of language barriers and hearing loss. Turn minority languages into living digital systems.">
+  <meta name="description" content="Thetha AI: Breaking the double isolation of language barriers and hearing loss. Turning underserved African languages into living digital systems.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,6 +53,14 @@
     body {
       background-color: #000000;
       color: #ffffff;
+    }
+    /* Hide scrollbars globally completely while keeping scroll functionality */
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    * {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
     }
     @keyframes flow {
       0% { transform: perspective(800px) rotateX(30deg) translateY(0) scale(1.1); }
@@ -161,14 +169,14 @@
     <div class="absolute bottom-[30%] left-[20%] w-1 h-1 rounded-full bg-neon animate-float opacity-70 blur-[1px]" style="animation-delay: 2s;"></div>
   </div>
 
-  <main class="flex-grow flex flex-col justify-center min-h-[100dvh] pt-24 pb-16 relative z-10 w-full overflow-x-hidden">
+  <main class="flex-grow flex flex-col justify-center min-h-[100dvh] pt-24 pb-16 relative z-10 w-full">
 
     <section class="flex-grow flex flex-col items-center justify-center relative px-4 sm:px-6 w-full h-full" id="hero">
       
       <!-- Removed bouncy floating div container class entirely -->
       <div class="max-w-5xl text-center relative z-20 mt-8 sm:mt-16 mb-12 sm:mb-0 w-full" style="">
         <h2 class="text-sm md:text-lg lg:text-xl font-medium lowercase text-white mb-4 tracking-wider md:tracking-[0.2em] font-headline opacity-90 drop-shadow-md">
-          turn minority languages into living digital systems
+          turning underserved African languages into living digital systems
         </h2>
         
         <h1 class="text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-extrabold lowercase text-white mb-6 md:mb-8 font-headline leading-tight sm:leading-[1.1] tracking-tight drop-shadow-sm px-2">

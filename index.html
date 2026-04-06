@@ -131,6 +131,16 @@
       0% { stroke-width: 1px; opacity: 0.6; }
       100% { stroke-width: 2.5px; opacity: 1; stroke: #ff87ba; }
     }
+    .bot-slide-up {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .bot-slide-down {
+      transform: translateY(20px);
+      opacity: 0;
+      pointer-events: none;
+    }
   </style>
 </head>
 <!-- Restored min-h-screen, removed h-screen overflow-hidden constraints to fix mobile scrolling -->
@@ -155,7 +165,7 @@
         <a href="#code" aria-label="Developer API" class="text-white/70 hover:text-neon transition-colors flex items-center justify-center hover:scale-110 transform duration-200">
           <span class="material-symbols-outlined text-lg sm:text-xl relative"><span class="absolute inset-0 bg-neon blur-md opacity-0 hover:opacity-50 transition-opacity"></span>code</span>
         </a>
-        <a href="#chat" aria-label="Contact Support" class="text-white/70 hover:text-neon transition-colors flex items-center justify-center hover:scale-110 transform duration-200">
+        <a href="#chat" id="chat-toggle-btn" aria-label="Contact Support" class="text-white/70 hover:text-neon transition-colors flex items-center justify-center hover:scale-110 transform duration-200">
           <span class="material-symbols-outlined text-lg sm:text-xl relative"><span class="absolute inset-0 bg-neon blur-md opacity-0 hover:opacity-50 transition-opacity"></span>chat</span>
         </a>
       </div>
@@ -250,8 +260,109 @@
 
   </footer>
 
+  <!-- FAQ Bot UI -->
+  <div id="faq-bot" class="fixed bottom-6 right-6 w-80 sm:w-96 bg-[#0a0a0a]/95 backdrop-blur-xl border border-neon/30 rounded-2xl shadow-[0_10px_40px_rgba(236,72,153,0.15)] z-[60] transition-all duration-500 ease-out bot-slide-down flex flex-col overflow-hidden nav-pill-liquid-border" style="padding: 1px;">
+    <div class="nav-pill-inner !rounded-[15px] !p-0 flex-col h-[500px] max-h-[70vh] items-stretch justify-start">
+      <div class="flex items-center justify-between p-4 border-b border-white/10 bg-black/40 w-full shrink-0">
+        <div class="flex items-center space-x-2">
+          <span class="material-symbols-outlined text-neon">smart_toy</span>
+          <span class="font-headline font-bold text-white tracking-widest text-sm">THETHA.BOT</span>
+        </div>
+        <button id="close-bot-btn" class="text-white/50 hover:text-white transition-colors" aria-label="Close FAQ">
+          <span class="material-symbols-outlined text-lg">close</span>
+        </button>
+      </div>
+      
+      <div class="p-4 flex-grow overflow-y-auto space-y-4 w-full" id="faq-content">
+        <!-- Message bubble -->
+        <div class="bg-white/5 rounded-2xl rounded-tl-sm p-3 inline-block max-w-[85%] border border-white/5">
+          <p class="text-sm font-body text-gray-300 leading-relaxed">Hi there! I can help answer some common questions about ThethaAI. What would you like to know?</p>
+        </div>
+        <!-- FAQ buttons container -->
+        <div id="faq-options" class="flex flex-col space-y-2 mt-4">
+          <!-- Will be filled by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // FAQ Bot Logic
+    const chatToggleBtn = document.getElementById('chat-toggle-btn');
+    const closeBotBtn = document.getElementById('close-bot-btn');
+    const faqBot = document.getElementById('faq-bot');
+    const faqContent = document.getElementById('faq-content');
+    const faqOptions = document.getElementById('faq-options');
+    
+    let isBotOpen = false;
+    let faqDataLoaded = false;
+    
+    function toggleBot(event) {
+      if(event) event.preventDefault();
+      isBotOpen = !isBotOpen;
+      if (isBotOpen) {
+        faqBot.classList.remove('bot-slide-down');
+        faqBot.classList.add('bot-slide-up');
+        if (!faqDataLoaded) loadFAQ();
+      } else {
+        faqBot.classList.remove('bot-slide-up');
+        faqBot.classList.add('bot-slide-down');
+      }
+    }
+    
+    chatToggleBtn.addEventListener('click', toggleBot);
+    closeBotBtn.addEventListener('click', toggleBot);
+    
+    // Auto-scroll content
+    function scrollToBottom() {
+      faqContent.scrollTop = faqContent.scrollHeight;
+    }
+    
+    function appendAnswer(question, answer) {
+      // Create user message 
+      const qDiv = document.createElement('div');
+      qDiv.className = 'bg-neon/20 border border-neon/30 rounded-2xl rounded-tr-sm p-3 max-w-[85%] ml-auto text-sm font-body text-white self-end flex';
+      qDiv.textContent = question;
+      faqContent.appendChild(qDiv);
+      
+      // Hide options temporarily to show interaction
+      faqOptions.style.display = 'none';
+      scrollToBottom();
+      
+      // Simulate reply delay
+      setTimeout(() => {
+        const aDiv = document.createElement('div');
+        aDiv.className = 'bg-white/5 rounded-2xl rounded-tl-sm p-3 inline-block max-w-[85%] border border-white/5 text-sm font-body text-gray-300 leading-relaxed self-start';
+        aDiv.textContent = answer;
+        faqContent.appendChild(aDiv);
+        
+        // Show options again at the bottom
+        faqOptions.style.display = 'flex';
+        faqContent.appendChild(faqOptions);
+        scrollToBottom();
+      }, 600);
+    }
+    
+    async function loadFAQ() {
+      try {
+        const response = await fetch('./faq.json');
+        const data = await response.json();
+        
+        data.forEach(item => {
+          const btn = document.createElement('button');
+          btn.className = 'text-left w-full bg-black/40 hover:bg-neon/20 border border-white/10 hover:border-neon/50 transition-colors rounded-xl p-3 text-xs sm:text-sm text-gray-300 hover:text-white font-medium';
+          btn.textContent = item.q;
+          btn.onclick = () => appendAnswer(item.q, item.a);
+          faqOptions.appendChild(btn);
+        });
+        
+        faqDataLoaded = true;
+      } catch (e) {
+        console.error('Failed to load FAQs:', e);
+      }
+    }
   </script>
 </body>
 </html>

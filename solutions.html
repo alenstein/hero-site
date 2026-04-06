@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>thetha | solutions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        /* Kinetic background waves simulation */
+        .topo-wave {
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.08) 0%, transparent 50%);
+            filter: blur(80px);
+            z-index: -1;
+            transform: rotate(-15deg);
+        }
+        /* Glow Effect for Navigation Pill */
+        .nav-glow {
+            box-shadow: 0 0 20px rgba(236, 72, 153, 0.1);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary-fixed": "#ff6daf",
+                "secondary-container": "#454747",
+                "outline-variant": "#484848",
+                "tertiary-dim": "#8f93ff",
+                "on-tertiary-fixed": "#030062",
+                "primary-fixed-dim": "#fa53a4",
+                "outline": "#757575",
+                "on-secondary-container": "#d0d0d0",
+                "tertiary-container": "#898efa",
+                "surface-bright": "#2c2c2c",
+                "inverse-primary": "#b5146e",
+                "error-container": "#a70138",
+                "tertiary-fixed": "#a5a9ff",
+                "inverse-on-surface": "#555555",
+                "secondary-fixed-dim": "#d4d4d4",
+                "on-background": "#ffffff",
+                "secondary-fixed": "#e2e2e2",
+                "on-tertiary": "#100f82",
+                "on-secondary-fixed-variant": "#5a5c5c",
+                "on-tertiary-fixed-variant": "#272993",
+                "on-secondary-fixed": "#3e4040",
+                "on-secondary": "#505252",
+                "inverse-surface": "#f9f9f9",
+                "background": "#0e0e0e",
+                "primary": "#ff87ba",
+                "on-primary-container": "#4b002a",
+                "on-primary-fixed-variant": "#5c0035",
+                "on-error": "#490013",
+                "surface-container-lowest": "#000000",
+                "surface-container-low": "#131313",
+                "on-surface-variant": "#ababab",
+                "surface-dim": "#0e0e0e",
+                "on-tertiary-container": "#040069",
+                "surface-tint": "#ff87ba",
+                "on-primary": "#600037",
+                "on-primary-fixed": "#000000",
+                "tertiary-fixed-dim": "#959aff",
+                "surface": "#0e0e0e",
+                "secondary": "#e2e2e2",
+                "secondary-dim": "#d4d4d4",
+                "surface-container": "#191919",
+                "surface-container-high": "#1f1f1f",
+                "tertiary": "#989dff",
+                "error": "#ff6e84",
+                "surface-container-highest": "#262626",
+                "on-error-container": "#ffb2b9",
+                "primary-dim": "#ff67ad",
+                "primary-container": "#ff6daf",
+                "error-dim": "#d73357",
+                "surface-variant": "#262626",
+                "on-surface": "#ffffff"
+              },
+              fontFamily: {
+                "headline": ["Inter"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-surface-container-lowest selection:bg-primary-dim selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-1/2 -translate-x-1/2 w-[90%] max-w-5xl z-50 flex justify-between items-center px-8 py-3 bg-zinc-950/60 backdrop-blur-xl rounded-full border border-zinc-800/50 mt-6 shadow-[0_0_40px_rgba(236,72,153,0.05)] nav-glow">
+<div class="text-2xl font-black lowercase tracking-tighter text-white">thetha</div>
+<div class="hidden md:flex items-center gap-8 font-['Inter'] lowercase tracking-wider text-sm">
+<a class="text-pink-500 font-bold border-b-2 border-pink-500 pb-1" href="#">solutions</a>
+<a class="text-zinc-400 hover:text-white transition-colors" href="#">platform</a>
+<a class="text-zinc-400 hover:text-white transition-colors" href="#">accessibility</a>
+<a class="text-zinc-400 hover:text-white transition-colors" href="#">pricing</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary hover:bg-primary-dim text-on-primary-fixed px-6 py-2 rounded-full font-bold lowercase tracking-tight transition-all duration-300 hover:scale-105 active:scale-95">
+                get started
+            </button>
+<button class="md:hidden text-white material-symbols-outlined" data-icon="menu">menu</button>
+</div>
+</nav>
+<!-- Kinetic Background Elements -->
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="topo-wave top-[-20%] left-[-10%] opacity-40"></div>
+<div class="topo-wave bottom-[-20%] right-[-10%] opacity-30" style="background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 60%);"></div>
+</div>
+<main class="relative z-10 pt-48 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
+<!-- Hero Section -->
+<header class="mb-24 max-w-4xl">
+<h1 class="text-5xl md:text-8xl font-black lowercase tracking-tighter leading-[0.9] text-white mb-8">
+                solutions for a <span class="text-primary">borderless</span> digital world
+            </h1>
+<h2 class="text-xl md:text-3xl font-light text-on-surface-variant lowercase tracking-wide max-w-2xl leading-relaxed">
+                empowering accessibility through intelligent language systems.
+            </h2>
+</header>
+<!-- Solutions Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Card 1: Real-time Transcription -->
+<div class="md:col-span-8 group p-8 rounded-xl bg-surface-container-low border border-outline-variant/30 hover:border-primary/50 transition-all duration-500 flex flex-col justify-between min-h-[320px]">
+<div>
+<span class="material-symbols-outlined text-primary mb-6 text-4xl" data-icon="transcribe">transcribe</span>
+<h3 class="text-3xl font-bold text-on-surface lowercase tracking-tighter mb-4">real-time transcription</h3>
+<p class="text-on-surface-variant text-lg max-w-md">Instantly convert spoken word into accurate text across 120+ dialects with zero latency for global collaboration.</p>
+</div>
+<div class="mt-8 overflow-hidden rounded-lg h-32 relative">
+<img class="w-full h-full object-cover opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-80 transition-all duration-700" data-alt="abstract digital data visualization with pink and white neon light waves flowing across a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd23URunGSSn9pmcRDbAXoMXs8NtYAsc0zU6VUQNehQArnA1p0AgBJwLFCtxo2M5Xd-FKQenIoaFaWQ2_E4xTP_46O-Vh6sbyAjFlh8Pw33ahSOYJtZp2WUmvR3TJH1_2sLv3_qrkPYmrOSLSDecvkDvlhq4gO0EWvcdcIxFTwS5Wco1NuTwo7bsxj8M6XthPQzdPyTFw60DGt_w4L4HwH1ZbTY2zwHBfwZ2LY9X7nnpEEjPlRwQ6RS7-8DF6QynQ5dzAmXV-MwVg"/>
+</div>
+</div>
+<!-- Card 2: Minority Language Preservation -->
+<div class="md:col-span-4 p-8 rounded-xl bg-surface-container-low border border-outline-variant/30 hover:border-primary/50 transition-all duration-500 flex flex-col gap-6">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="language_poverty">language</span>
+<div>
+<h3 class="text-2xl font-bold text-on-surface lowercase tracking-tighter mb-3">minority language preservation</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Protecting cultural heritage by training AI models on endangered and underserved linguistic datasets.</p>
+</div>
+<div class="mt-auto pt-6">
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 rounded-full bg-surface-container-highest text-[10px] uppercase tracking-widest text-on-surface-variant border border-outline-variant/20">Cultural AI</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-highest text-[10px] uppercase tracking-widest text-on-surface-variant border border-outline-variant/20">Archive</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Accessibility-First Interface -->
+<div class="md:col-span-4 p-8 rounded-xl bg-surface-container-low border border-outline-variant/30 hover:border-primary/50 transition-all duration-500 flex flex-col justify-center text-center items-center">
+<span class="material-symbols-outlined text-primary text-5xl mb-6" data-icon="accessibility_new" style="font-variation-settings: 'FILL' 1;">accessibility_new</span>
+<h3 class="text-2xl font-bold text-on-surface lowercase tracking-tighter mb-3">accessibility-first interface</h3>
+<p class="text-on-surface-variant text-sm">Adaptive UI that responds to diverse user needs, ensuring the platform remains inclusive for everyone.</p>
+</div>
+<!-- Card 4: Neural Translation Engine -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl bg-surface-container-low border border-outline-variant/30 hover:border-primary/50 transition-all duration-500 min-h-[320px]">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-20 group-hover:scale-110 transition-transform duration-1000" data-alt="deep space view of earth with glowing communication networks and digital connections in magenta tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh2ByDOafakLW8PYmQR27e4JxfQ4CzJfMDqY6_D6mYSYTjQBtys__z9MpZgvDoh9z0T_h1pyu7hmD1enmMtycp3p5b3VT7nDthqhrItmk3q2SvOViBfrnlSc9RBGIIg1R5-WDvSvez4_4vlFw43ZUnrzIoBQLbqvvNCs0oKIEKTKtbwyHd9DZJUTP6RtFKSN8LKaKjq0h7t9FzBCXScU8DPccAE0NmdTvkXUEKKeZKOwxFwFE0BpQ_S5jnOTm3lzr8N-zZzlCzcPo"/>
+</div>
+<div class="relative z-10 p-8 h-full flex flex-col justify-end bg-gradient-to-t from-black via-transparent to-transparent">
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="psychology">psychology</span>
+<h3 class="text-3xl font-bold text-on-surface lowercase tracking-tighter mb-4">neural translation engine</h3>
+<p class="text-on-surface-variant text-lg max-w-xl">Leveraging advanced transformer models for context-aware translation that captures nuance, slang, and emotional tone.</p>
+</div>
+</div>
+<!-- Card 5: Secure Edge Processing -->
+<div class="md:col-span-6 p-8 rounded-xl bg-surface-container-low border border-outline-variant/30 hover:border-primary/50 transition-all duration-500 flex items-start gap-6">
+<div class="p-4 rounded-full bg-surface-container-highest border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="shield_with_heart">shield_with_heart</span>
+</div>
+<div>
+<h3 class="text-2xl font-bold text-on-surface lowercase tracking-tighter mb-2">secure edge processing</h3>
+<p class="text-on-surface-variant text-sm">Your data never leaves your device. localized inference ensures total privacy for sensitive linguistic information.</p>
+</div>
+</div>
+<!-- Card 6: API Integration -->
+<div class="md:col-span-6 p-8 rounded-xl bg-surface-container-low border border-outline-variant/30 hover:border-primary/50 transition-all duration-500 flex items-start gap-6">
+<div class="p-4 rounded-full bg-surface-container-highest border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="integration_instructions">integration_instructions</span>
+</div>
+<div>
+<h3 class="text-2xl font-bold text-on-surface lowercase tracking-tighter mb-2">universal api integration</h3>
+<p class="text-on-surface-variant text-sm">Embed thetha's intelligence directly into your existing workflow with our developer-friendly SDKs and APIs.</p>
+</div>
+</div>
+</div>
+<!-- Call to Action -->
+<section class="mt-32 p-12 rounded-3xl bg-surface-container border border-outline-variant/20 text-center relative overflow-hidden">
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-primary/10 rounded-full blur-[100px]"></div>
+<div class="absolute -bottom-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-[100px]"></div>
+<h2 class="text-4xl md:text-6xl font-black lowercase tracking-tighter text-white mb-8">ready to go <span class="text-primary">borderless</span>?</h2>
+<p class="text-on-surface-variant text-lg mb-12 max-w-xl mx-auto">Join the global movement toward universal understanding. Start your journey with thetha today.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="bg-primary text-on-primary-fixed px-10 py-4 rounded-full font-bold lowercase tracking-tight hover:scale-105 active:scale-95 transition-all">start building</button>
+<button class="border border-outline-variant text-on-surface px-10 py-4 rounded-full font-bold lowercase tracking-tight hover:bg-surface-container-highest transition-all">contact sales</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full flex flex-col md:flex-row justify-between items-center px-12 py-12 gap-8 bg-black border-t border-zinc-900 font-['Inter'] lowercase text-xs tracking-widest mt-12">
+<div class="text-lg font-bold text-white">thetha</div>
+<div class="flex gap-8">
+<a class="text-zinc-600 hover:text-pink-500 transition-colors" href="#">privacy</a>
+<a class="text-zinc-600 hover:text-pink-500 transition-colors" href="#">terms</a>
+<a class="text-zinc-600 hover:text-pink-500 transition-colors" href="#">security</a>
+<a class="text-zinc-600 hover:text-pink-500 transition-colors" href="#">status</a>
+</div>
+<div class="text-zinc-600">
+            © 2024 thetha. all rights reserved.
+        </div>
+</footer>
+</body></html>

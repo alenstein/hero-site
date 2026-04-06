@@ -1,0 +1,18 @@
+[
+  {
+    "q": "What is ThethaAI?",
+    "a": "ThethaAI is an accessibility-first AI platform turning underserved African languages into living digital systems."
+  },
+  {
+    "q": "How does it help with hearing loss?",
+    "a": "We provide real-time translation and captioning tools built specifically for minority and local dialects."
+  },
+  {
+    "q": "Can developers integrate ThethaAI?",
+    "a": "Yes! Developers can use our Developer API to easily wire up their applications."
+  },
+  {
+    "q": "Is the platform free?",
+    "a": "We offer structured pricing plans tailored to specific usage and support needs."
+  }
+]

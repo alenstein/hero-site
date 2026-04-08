@@ -18,7 +18,61 @@
         ::-webkit-scrollbar-track { background: #0e0e0e; }
         ::-webkit-scrollbar-thumb { background: #262626; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #484848; }
-    </style>
+    
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .nav-pill-liquid-border {
+      position: relative;
+      padding: 1.5px;
+      background: rgba(236, 72, 153, 0.15);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .nav-pill-liquid-border:hover {
+      box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
+    }
+    .nav-pill-liquid-border::before {
+      content: '';
+      position: absolute;
+      width: 250%;
+      height: 400%;
+      background: conic-gradient(from 0deg, transparent 0% 60%, #EC4899 80%, #EC4899 90%, transparent 100%);
+      animation: rotate 3s linear infinite;
+      z-index: -2;
+    }
+    .nav-pill-inner {
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 10, 10, 0.95);
+      border-radius: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.75rem;
+      z-index: 1;
+    }
+    @media (min-width: 768px) {
+      .nav-pill-inner {
+        padding: 0 2.5rem;
+      }
+    }
+    
+    .bot-slide-up {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .bot-slide-down {
+      transform: translateY(20px);
+      opacity: 0;
+      pointer-events: none;
+    }
+</style>
 <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -88,25 +142,27 @@
       }
     </script>
 </head>
-<body class="bg-black text-on-surface selection:bg-primary/30">
+<body class="bg-black text-on-surface selection:bg-primary/30 font-body overflow-x-hidden">
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 bg-black/60 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-8 h-16 w-full shadow-[0_0_40px_rgba(236,72,153,0.05)]">
-<div class="flex items-center gap-8">
-<a href="index.html" class="text-2xl font-black text-pink-500 lowercase tracking-tighter">thetha</a>
-<div class="hidden md:flex gap-6 items-center">
-<a class="text-pink-500 font-bold border-b-2 border-pink-500 pb-1 lowercase font-inter tracking-wider" href="#">documentation</a>
-<a class="text-zinc-400 hover:text-white transition-colors hover:bg-white/5 transition-all duration-300 lowercase font-inter tracking-wider" href="#">playground</a>
-<a class="text-zinc-400 hover:text-white transition-colors hover:bg-white/5 transition-all duration-300 lowercase font-inter tracking-wider" href="#">changelog</a>
-<a class="text-zinc-400 hover:text-white transition-colors hover:bg-white/5 transition-all duration-300 lowercase font-inter tracking-wider" href="#">support</a>
+<nav aria-label="Main Navigation" class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] sm:w-[90%] max-w-5xl h-14 sm:h-16 rounded-full backdrop-blur-2xl z-50 nav-pill-liquid-border">
+<div class="nav-pill-inner rounded-full">
+<div class="flex items-center space-x-3 sm:space-x-6">
+<a class="text-white/70 hover:text-neon transition-colors uppercase text-xs sm:text-sm tracking-wide font-label hidden sm:block" href="solutions.html">solutions</a>
+<a class="text-white/70 hover:text-neon transition-colors uppercase text-xs sm:text-sm tracking-wide font-label hidden sm:block" href="coming_soon.html">pricing</a>
+<a class="text-white/70 hover:text-neon transition-colors sm:hidden flex items-center" href="#menu"><span class="material-symbols-outlined text-lg">menu</span></a>
 </div>
+<div class="text-xl sm:text-2xl font-headline tracking-widest font-bold absolute left-1/2 -translate-x-1/2">
+<a aria-label="thetha home" class="hover:text-white transition-colors duration-300" href="index.html">
+          th<span class="text-neon drop-shadow-[0_0_5px_rgba(236,72,153,0.8)]">e</span>th<span class="text-neon drop-shadow-[0_0_5px_rgba(236,72,153,0.8)]">a</span>
+</a>
 </div>
-<div class="flex items-center gap-4">
-<div class="hidden lg:flex items-center bg-white/5 border border-outline-variant/30 rounded-full px-4 py-1.5 gap-2 group focus-within:border-primary/50 transition-all">
-<span class="material-symbols-outlined text-zinc-500 text-sm">search</span>
-<input class="bg-transparent border-none text-sm focus:ring-0 text-white w-48 placeholder:text-zinc-600" placeholder="Search documentation..." type="text"/>
-<kbd class="text-[10px] text-zinc-500 bg-zinc-900 px-1.5 py-0.5 rounded border border-zinc-800">⌘K</kbd>
-</div>
-<button class="bg-primary text-on-primary-fixed px-6 py-2 rounded-full font-bold text-sm lowercase tracking-wider scale-95 active:opacity-80 transition-all">sign in</button>
+<div class="flex items-center space-x-3 sm:space-x-4">
+<a aria-label="Developer API" class="text-white/70 hover:text-neon transition-colors flex items-center justify-center hover:scale-110 transform duration-200" href="api.html">
+<span class="material-symbols-outlined text-lg sm:text-xl relative"><span class="absolute inset-0 bg-neon blur-md opacity-0 hover:opacity-50 transition-opacity"></span>code</span>
+</a>
+<a aria-label="Contact Support" class="text-white/70 hover:text-neon transition-colors flex items-center justify-center hover:scale-110 transform duration-200" href="#chat" id="chat-toggle-btn">
+<span class="material-symbols-outlined text-lg sm:text-xl relative"><span class="absolute inset-0 bg-neon blur-md opacity-0 hover:opacity-50 transition-opacity"></span>chat</span>
+</a></div>
 </div>
 </nav>
 <!-- SideNavBar -->
@@ -167,7 +223,7 @@
 <span class="material-symbols-outlined text-sm">chevron_right</span>
 <span class="text-zinc-300">Authentication</span>
 </nav>
-<h1 class="text-5xl lg:text-6xl font-black lowercase tracking-tighter mb-8 leading-tight">
+<h1 class="text-5xl lg:text-6xl lowercase tracking-tighter mb-8 leading-tight font-headline font-extrabold">
                     authentication
                 </h1>
 <div class="space-y-12 text-secondary/90 leading-relaxed font-body">
@@ -177,7 +233,7 @@
                         </p>
 </section>
 <section class="space-y-4">
-<h2 class="text-2xl font-bold text-white lowercase">api key security</h2>
+<h2 class="text-2xl font-bold text-white lowercase font-headline">api key security</h2>
 <p>
                             Keep your API key secure and do not share it in client-side code. If your key is compromised, revoke it immediately through the dashboard to prevent unauthorized usage.
                         </p>
@@ -193,7 +249,7 @@
 </div>
 </section>
 <section class="space-y-6 pt-6">
-<h3 class="text-xl font-bold text-white lowercase">authorization types</h3>
+<h3 class="text-xl font-bold text-white lowercase font-headline">authorization types</h3>
 <div class="grid gap-4">
 <div class="p-6 bg-surface-container rounded-xl border border-outline-variant/20 hover:border-primary/30 transition-all">
 <div class="flex justify-between items-start mb-2">
@@ -241,7 +297,7 @@
 </div>
 <!-- Response Preview -->
 <div class="mt-12">
-<h4 class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4">Sample Response</h4>
+<h4 class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4 font-headline">Sample Response</h4>
 <div class="bg-zinc-900/30 rounded-xl p-6 border border-zinc-800/50 font-mono text-sm">
 <pre class="text-zinc-400">{
   <span class="text-tertiary">"status"</span>: <span class="text-primary">"success"</span>,
@@ -268,20 +324,125 @@
 </div>
 </main>
 <!-- Footer -->
-<footer class="w-full py-12 bg-black border-t border-zinc-900">
-<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
-<div class="flex flex-col items-center md:items-start gap-4">
-<a href="index.html" class="text-pink-500 font-black text-xl lowercase tracking-tighter hover:scale-105 transition-all">thetha</a>
-<p class="text-xs font-inter uppercase tracking-widest text-zinc-600">© 2024 thetha labs. built for precision.</p>
+<footer class="w-full flex flex-col md:flex-row items-center justify-between border-t border-neon/20 bg-[#0a0a0a]/80 backdrop-blur-md px-6 md:px-12 py-6 md:py-4 relative z-50 font-body space-y-4 md:space-y-0 shadow-[0_-5px_20px_rgba(236,72,153,0.05)]">
+<a class="text-white/50 text-xs sm:text-sm font-medium tracking-wide hover:text-white transition-all" href="index.html">
+      th<span class="text-neon drop-shadow-[0_0_5px_rgba(236,72,153,0.8)]">e</span>th<span class="text-neon drop-shadow-[0_0_5px_rgba(236,72,153,0.8)]">a</span> ai © <span id="current-year"></span>
+</a>
+<div class="flex items-center space-x-8 md:space-x-6">
+<a aria-label="GitHub" class="text-white/50 hover:text-neon hover:drop-shadow-[0_0_8px_rgba(236,72,153,0.8)] transition-all duration-300 transform hover:-translate-y-1" href="https://github.com/ThethaAI" rel="noopener noreferrer" target="_blank">
+<svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+</a>
+<a aria-label="Twitter" class="text-white/50 hover:text-neon hover:drop-shadow-[0_0_8px_rgba(236,72,153,0.8)] transition-all duration-300 transform hover:-translate-y-1" href="https://twitter.com">
+<svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewbox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+</a>
+<a aria-label="Email" class="text-white/50 hover:text-neon hover:drop-shadow-[0_0_8px_rgba(236,72,153,0.8)] transition-all duration-300 transform hover:-translate-y-1" href="mailto:hello@thetha.ai">
+<svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewbox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"></path></svg>
+</a>
 </div>
-<div class="flex gap-8">
-<a class="text-xs font-inter uppercase tracking-widest text-zinc-600 hover:text-pink-400 transition-colors opacity-80 hover:opacity-100" href="#">privacy</a>
-<a class="text-xs font-inter uppercase tracking-widest text-zinc-600 hover:text-pink-400 transition-colors opacity-80 hover:opacity-100" href="terms.html">terms</a>
-<a class="text-xs font-inter uppercase tracking-widest text-zinc-600 hover:text-pink-400 transition-colors opacity-80 hover:opacity-100" href="#">security</a>
-<a class="text-xs font-inter uppercase tracking-widest text-zinc-600 hover:text-pink-400 transition-colors opacity-80 hover:opacity-100" href="#">github</a>
-</div>
+<div class="flex space-x-6 text-xs sm:text-sm font-medium">
+<a class="text-white/50 hover:text-white hover:drop-shadow-md transition-all duration-300 tracking-wider" href="privacy_policy.html">privacy</a>
+<a class="text-white/50 hover:text-white hover:drop-shadow-md transition-all duration-300 tracking-wider" href="terms.html">terms</a>
 </div>
 </footer>
 <!-- Kinetic Background Element -->
 <div class="fixed bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-pink-500/50 to-transparent blur-sm"></div>
-</body></html>
+<div class="fixed bottom-6 right-6 w-80 sm:w-96 bg-[#0a0a0a]/95 backdrop-blur-xl border border-neon/30 rounded-2xl shadow-[0_10px_40px_rgba(236,72,153,0.15)] z-[60] transition-all duration-500 ease-out bot-slide-down flex flex-col overflow-hidden nav-pill-liquid-border" id="faq-bot" style="padding: 1px;">
+<div class="nav-pill-inner !rounded-[15px] !p-0 flex-col h-[500px] max-h-[70vh] items-stretch justify-start">
+<div class="flex items-center justify-between p-4 border-b border-white/10 bg-black/40 w-full shrink-0">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-neon">smart_toy</span>
+<span class="font-headline font-bold text-white tracking-widest text-sm">THETHA.BOT</span>
+</div>
+<button aria-label="Close FAQ" class="text-white/50 hover:text-white transition-colors" id="close-bot-btn">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+<div class="p-4 flex-grow overflow-y-auto space-y-4 w-full" id="faq-content">
+<!-- Message bubble -->
+<div class="bg-white/5 rounded-2xl rounded-tl-sm p-3 inline-block max-w-[85%] border border-white/5">
+<p class="text-sm font-body text-gray-300 leading-relaxed">Hi there! I can help answer some common questions about ThethaAI. What would you like to know?</p>
+</div>
+<!-- FAQ buttons container -->
+<div class="flex flex-col space-y-2 mt-4" id="faq-options">
+<!-- Will be filled by JS -->
+</div>
+</div>
+</div>
+</div><script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // FAQ Bot Logic
+    const chatToggleBtn = document.getElementById('chat-toggle-btn');
+    const closeBotBtn = document.getElementById('close-bot-btn');
+    const faqBot = document.getElementById('faq-bot');
+    const faqContent = document.getElementById('faq-content');
+    const faqOptions = document.getElementById('faq-options');
+    
+    let isBotOpen = false;
+    let faqDataLoaded = false;
+    
+    function toggleBot(event) {
+      if(event) event.preventDefault();
+      isBotOpen = !isBotOpen;
+      if (isBotOpen) {
+        faqBot.classList.remove('bot-slide-down');
+        faqBot.classList.add('bot-slide-up');
+        if (!faqDataLoaded) loadFAQ();
+      } else {
+        faqBot.classList.remove('bot-slide-up');
+        faqBot.classList.add('bot-slide-down');
+      }
+    }
+    
+    chatToggleBtn.addEventListener('click', toggleBot);
+    closeBotBtn.addEventListener('click', toggleBot);
+    
+    // Auto-scroll content
+    function scrollToBottom() {
+      faqContent.scrollTop = faqContent.scrollHeight;
+    }
+    
+    function appendAnswer(question, answer) {
+      // Create user message 
+      const qDiv = document.createElement('div');
+      qDiv.className = 'bg-neon/20 border border-neon/30 rounded-2xl rounded-tr-sm p-3 max-w-[85%] ml-auto text-sm font-body text-white self-end flex';
+      qDiv.textContent = question;
+      faqContent.appendChild(qDiv);
+      
+      // Hide options temporarily to show interaction
+      faqOptions.style.display = 'none';
+      scrollToBottom();
+      
+      // Simulate reply delay
+      setTimeout(() => {
+        const aDiv = document.createElement('div');
+        aDiv.className = 'bg-white/5 rounded-2xl rounded-tl-sm p-3 inline-block max-w-[85%] border border-white/5 text-sm font-body text-gray-300 leading-relaxed self-start';
+        aDiv.textContent = answer;
+        faqContent.appendChild(aDiv);
+        
+        // Show options again at the bottom
+        faqOptions.style.display = 'flex';
+        faqContent.appendChild(faqOptions);
+        scrollToBottom();
+      }, 600);
+    }
+    
+    async function loadFAQ() {
+      try {
+        const response = await fetch('./faq.json');
+        const data = await response.json();
+        
+        data.forEach(item => {
+          const btn = document.createElement('button');
+          btn.className = 'text-left w-full bg-black/40 hover:bg-neon/20 border border-white/10 hover:border-neon/50 transition-colors rounded-xl p-3 text-xs sm:text-sm text-gray-300 hover:text-white font-medium';
+          btn.textContent = item.q;
+          btn.onclick = () => appendAnswer(item.q, item.a);
+          faqOptions.appendChild(btn);
+        });
+        
+        faqDataLoaded = true;
+      } catch (e) {
+        console.error('Failed to load FAQs:', e);
+      }
+    }
+  </script></body></html>

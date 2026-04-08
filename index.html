@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+
+<html class="dark" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>thetha ai - accessibility first</title>
-  
-  <meta name="description" content="Thetha AI: Breaking the double isolation of language barriers and hearing loss. Turning underserved African languages into living digital systems.">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>thetha ai - accessibility first</title>
+<meta content="Thetha AI: Breaking the double isolation of language barriers and hearing loss. Turning underserved African languages into living digital systems." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
@@ -48,8 +46,7 @@
       }
     }
   </script>
-
-  <style>
+<style>
     body {
       background-color: #000000;
       color: #ffffff;
@@ -145,148 +142,121 @@
 </head>
 <!-- Restored min-h-screen, removed h-screen overflow-hidden constraints to fix mobile scrolling -->
 <body class="font-body antialiased relative min-h-screen overflow-x-hidden flex flex-col bg-black text-white">
-
-  <nav class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] sm:w-[90%] max-w-5xl h-14 sm:h-16 rounded-full backdrop-blur-2xl z-50 nav-pill-liquid-border" aria-label="Main Navigation">
-    <div class="nav-pill-inner rounded-full">
-      
-      <div class="flex items-center space-x-3 sm:space-x-6">
-        <a href="solutions.html" class="text-white/70 hover:text-neon transition-colors uppercase text-xs sm:text-sm tracking-wide font-label hidden sm:block">solutions</a>
-        <a href="coming_soon.html" class="text-white/70 hover:text-neon transition-colors uppercase text-xs sm:text-sm tracking-wide font-label hidden sm:block">pricing</a>
-        <a href="#menu" class="text-white/70 hover:text-neon transition-colors sm:hidden flex items-center"><span class="material-symbols-outlined text-lg">menu</span></a>
-      </div>
-      
-      <div class="text-xl sm:text-2xl font-headline tracking-widest font-bold absolute left-1/2 -translate-x-1/2 sm:static sm:translate-x-0">
-        <a href="index.html" aria-label="thetha home" class="hover:text-white transition-colors duration-300">
+<nav aria-label="Main Navigation" class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] sm:w-[90%] max-w-5xl h-14 sm:h-16 rounded-full backdrop-blur-2xl z-50 nav-pill-liquid-border">
+<div class="nav-pill-inner rounded-full">
+<div class="flex items-center space-x-3 sm:space-x-6">
+<a class="text-white/70 hover:text-neon transition-colors uppercase text-xs sm:text-sm tracking-wide font-label hidden sm:block" href="solutions.html">solutions</a>
+<a class="text-white/70 hover:text-neon transition-colors uppercase text-xs sm:text-sm tracking-wide font-label hidden sm:block" href="coming_soon.html">pricing</a>
+<a class="text-white/70 hover:text-neon transition-colors sm:hidden flex items-center" href="#menu"><span class="material-symbols-outlined text-lg">menu</span></a>
+</div>
+<div class="text-xl sm:text-2xl font-headline tracking-widest font-bold absolute left-1/2 -translate-x-1/2">
+<a aria-label="thetha home" class="hover:text-white transition-colors duration-300" href="index.html">
           th<span class="text-neon drop-shadow-[0_0_5px_rgba(236,72,153,0.8)]">e</span>th<span class="text-neon drop-shadow-[0_0_5px_rgba(236,72,153,0.8)]">a</span>
-        </a>
-      </div>
-      
-      <div class="flex items-center space-x-3 sm:space-x-4">
-        <a href="api.html" aria-label="Developer API" class="text-white/70 hover:text-neon transition-colors flex items-center justify-center hover:scale-110 transform duration-200">
-          <span class="material-symbols-outlined text-lg sm:text-xl relative"><span class="absolute inset-0 bg-neon blur-md opacity-0 hover:opacity-50 transition-opacity"></span>code</span>
-        </a>
-        <a href="#chat" id="chat-toggle-btn" aria-label="Contact Support" class="text-white/70 hover:text-neon transition-colors flex items-center justify-center hover:scale-110 transform duration-200">
-          <span class="material-symbols-outlined text-lg sm:text-xl relative"><span class="absolute inset-0 bg-neon blur-md opacity-0 hover:opacity-50 transition-opacity"></span>chat</span>
-        </a>
-      </div>
-
-    </div>
-  </nav>
-
-  <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden hover-ignore">
-    <div class="absolute top-[20%] left-[10%] w-2 h-2 rounded-full bg-neon animate-float opacity-50 blur-[1px]"></div>
-    <div class="absolute top-[40%] right-[15%] w-3 h-3 rounded-full bg-primary animate-float opacity-30 blur-[2px]" style="animation-delay: 1s;"></div>
-    <div class="absolute bottom-[30%] left-[20%] w-1 h-1 rounded-full bg-neon animate-float opacity-70 blur-[1px]" style="animation-delay: 2s;"></div>
-  </div>
-
-  <main class="flex-grow flex flex-col justify-center min-h-[100dvh] pt-24 pb-16 relative z-10 w-full">
-
-    <section class="flex-grow flex flex-col items-center justify-center relative px-4 sm:px-6 w-full h-full" id="hero">
-      
-      <!-- Removed bouncy floating div container class entirely -->
-      <div class="max-w-5xl text-center relative z-20 mt-8 sm:mt-16 mb-12 sm:mb-0 w-full" style="">
-        <h2 class="text-sm md:text-lg lg:text-xl font-medium lowercase text-white mb-4 tracking-wider md:tracking-[0.2em] font-headline opacity-90 drop-shadow-md">
+</a>
+</div>
+<div class="flex items-center space-x-3 sm:space-x-4">
+<a aria-label="Developer API" class="text-white/70 hover:text-neon transition-colors flex items-center justify-center hover:scale-110 transform duration-200" href="api.html">
+<span class="material-symbols-outlined text-lg sm:text-xl relative"><span class="absolute inset-0 bg-neon blur-md opacity-0 hover:opacity-50 transition-opacity"></span>code</span>
+</a>
+<a aria-label="Contact Support" class="text-white/70 hover:text-neon transition-colors flex items-center justify-center hover:scale-110 transform duration-200" href="#chat" id="chat-toggle-btn">
+<span class="material-symbols-outlined text-lg sm:text-xl relative"><span class="absolute inset-0 bg-neon blur-md opacity-0 hover:opacity-50 transition-opacity"></span>chat</span>
+</a>
+</div>
+</div>
+</nav>
+<div class="fixed inset-0 z-0 pointer-events-none overflow-hidden hover-ignore">
+<div class="absolute top-[20%] left-[10%] w-2 h-2 rounded-full bg-neon animate-float opacity-50 blur-[1px]"></div>
+<div class="absolute top-[40%] right-[15%] w-3 h-3 rounded-full bg-primary animate-float opacity-30 blur-[2px]" style="animation-delay: 1s;"></div>
+<div class="absolute bottom-[30%] left-[20%] w-1 h-1 rounded-full bg-neon animate-float opacity-70 blur-[1px]" style="animation-delay: 2s;"></div>
+</div>
+<main class="flex-grow flex flex-col justify-center min-h-[100dvh] pt-24 pb-16 relative z-10 w-full">
+<section class="flex-grow flex flex-col items-center justify-center relative px-4 sm:px-6 w-full h-full" id="hero">
+<!-- Removed bouncy floating div container class entirely -->
+<div class="max-w-5xl text-center relative z-20 mt-8 sm:mt-16 mb-12 sm:mb-0 w-full" style="">
+<h2 class="text-sm md:text-lg lg:text-xl font-medium lowercase text-white mb-4 tracking-wider md:tracking-[0.2em] font-headline opacity-90 drop-shadow-md">
           turning underserved African languages into living digital systems
         </h2>
-        
-        <h1 class="text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-extrabold lowercase text-white mb-6 md:mb-8 font-headline leading-tight sm:leading-[1.1] tracking-tight drop-shadow-sm px-2">
-          the <span class="text-glow-pink inline-block">accessibility first</span><br class="hidden sm:block" /> ai platform
+<h1 class="text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-extrabold lowercase text-white mb-6 md:mb-8 font-headline leading-tight sm:leading-[1.1] tracking-tight drop-shadow-sm px-2">
+          the <span class="text-glow-pink inline-block">accessibility first</span><br class="hidden sm:block"/> ai platform
         </h1>
-        
-        <p class="text-xs sm:text-sm md:text-base lg:text-lg text-gray-300 max-w-2xl mx-auto mb-6 md:mb-10 leading-relaxed font-body px-4 sm:px-0 opacity-80 mix-blend-screen">
+<p class="text-xs sm:text-sm md:text-base lg:text-lg text-gray-300 max-w-2xl mx-auto mb-6 md:mb-10 leading-relaxed font-body px-4 sm:px-0 opacity-80 mix-blend-screen">
           Breaking the double isolation of language barriers and hearing loss. We build the tools you need to participate in the digital world on your own terms, in your native tongue.
         </p>
-        
-        <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 w-full sm:w-auto px-6 sm:px-0">
-          <a href="#get-started" class="w-full sm:w-auto px-8 py-3.5 rounded-full border-2 border-neon hover:bg-neon hover:text-white transition-all duration-300 font-bold uppercase text-xs sm:text-sm tracking-widest text-neon relative overflow-hidden group" style="box-shadow: 0 0 15px rgba(236, 72, 153, 0.4);">
-            <span class="relative z-10 transition-colors duration-300 group-hover:text-white">Get started</span>
-            <div class="absolute inset-0 h-full w-full bg-neon transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-0"></div>
-          </a>
-          <a href="solutions.html" class="w-full sm:w-auto px-8 py-3.5 rounded-full border border-white/20 hover:border-white/50 hover:bg-white/10 transition-all duration-300 text-white font-medium uppercase text-xs sm:text-sm tracking-widest backdrop-blur-sm">
+<div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 w-full sm:w-auto px-6 sm:px-0">
+<a class="w-full sm:w-auto px-8 py-3.5 rounded-full border-2 border-neon hover:bg-neon hover:text-white transition-all duration-300 font-bold uppercase text-xs sm:text-sm tracking-widest text-neon relative overflow-hidden group" href="#get-started" style="box-shadow: 0 0 15px rgba(236, 72, 153, 0.4);">
+<span class="relative z-10 transition-colors duration-300 group-hover:text-white">Get started</span>
+<div class="absolute inset-0 h-full w-full bg-neon transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-0"></div>
+</a>
+<a class="w-full sm:w-auto px-8 py-3.5 rounded-full border border-white/20 hover:border-white/50 hover:bg-white/10 transition-all duration-300 text-white font-medium uppercase text-xs sm:text-sm tracking-widest backdrop-blur-sm" href="solutions.html">
             Learn More
           </a>
-        </div>
-      </div>
-
-      <div class="absolute bottom-0 left-0 w-full h-[300px] sm:h-[400px] md:h-[500px] z-0 pointer-events-none origin-bottom">
-        
-        <div class="absolute top-[20%] left-[10%] w-64 md:w-96 h-64 md:h-96 bg-neon/30 blur-[100px] md:blur-[140px] rounded-full z-[-1] animate-glow-pulse"></div>
-        <div class="absolute top-[30%] right-[10%] w-64 md:w-96 h-64 md:h-96 bg-primary/20 blur-[100px] md:blur-[140px] rounded-full z-[-1] animate-glow-pulse" style="animation-delay: 1.5s;"></div>
-        <div class="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[120%] h-64 bg-neon/10 blur-[100px] z-[-1]"></div>
-
-        <div class="absolute inset-0 flex items-end justify-center animate-flow neon-mesh-glow">
-          
-          <svg class="w-full min-w-[200%] sm:min-w-[150%] md:min-w-[120%] lg:min-w-[100%]" viewBox="0 0 1000 400" preserveAspectRatio="none" style="height: 100%;">
-            <path d="M0,350 Q250,300 500,350 T1000,350" fill="none" stroke="#EC4899" stroke-width="1.5" opacity="1.0" class="mesh-path" />
-            <path d="M0,330 Q250,280 500,330 T1000,330" fill="none" stroke="#EC4899" stroke-width="1.5" opacity="0.8" class="mesh-path" style="animation-delay: 0.2s;" />
-            <path d="M0,310 Q250,260 500,310 T1000,310" fill="none" stroke="#EC4899" stroke-width="1.5" opacity="0.6" class="mesh-path" style="animation-delay: 0.4s;" />
-            <path d="M0,290 Q250,240 500,290 T1000,290" fill="none" stroke="#EC4899" stroke-width="1.5" opacity="0.4" class="mesh-path" style="animation-delay: 0.6s;" />
-            <path d="M0,270 Q250,220 500,270 T1000,270" fill="none" stroke="#EC4899" stroke-width="1.5" opacity="0.2" class="mesh-path" style="animation-delay: 0.8s;" />
-            
-            <path d="M250,220 V400" stroke="#EC4899" stroke-width="1.5" fill="none" opacity="0.4" stroke-dasharray="3 6" />
-            <path d="M500,270 V400" stroke="#EC4899" stroke-width="1.5" fill="none" opacity="0.4" stroke-dasharray="3 6" />
-            <path d="M750,220 V400" stroke="#EC4899" stroke-width="1.5" fill="none" opacity="0.4" stroke-dasharray="3 6" />
-            
-            <path d="M0,380 Q250,340 500,380 T1000,380" fill="none" stroke="#EC4899" stroke-width="2" opacity="0.9" style="filter: drop-shadow(0 0 10px #EC4899)" />
-          </svg>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="w-full flex flex-col md:flex-row items-center justify-between border-t border-neon/20 bg-[#0a0a0a]/80 backdrop-blur-md px-6 md:px-12 py-6 md:py-4 relative z-50 font-body space-y-4 md:space-y-0 shadow-[0_-5px_20px_rgba(236,72,153,0.05)]">
-    
-    <a href="index.html" class="text-white/50 text-xs sm:text-sm font-medium tracking-wide hover:text-white transition-all">
-      thetha ai &copy; <span id="current-year"></span>
-    </a>
-    
-    <div class="flex items-center space-x-8 md:space-x-6">
-      <a href="https://github.com/ThethaAI" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-white/50 hover:text-neon hover:drop-shadow-[0_0_8px_rgba(236,72,153,0.8)] transition-all duration-300 transform hover:-translate-y-1">
-        <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-      </a>
-      <a href="https://twitter.com" aria-label="Twitter" class="text-white/50 hover:text-neon hover:drop-shadow-[0_0_8px_rgba(236,72,153,0.8)] transition-all duration-300 transform hover:-translate-y-1">
-        <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      </a>
-      <a href="mailto:hello@thetha.ai" aria-label="Email" class="text-white/50 hover:text-neon hover:drop-shadow-[0_0_8px_rgba(236,72,153,0.8)] transition-all duration-300 transform hover:-translate-y-1">
-        <svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewBox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
-      </a>
-    </div>
-    
-    <div class="flex space-x-6 text-xs sm:text-sm font-medium">
-      <a href="privacy_policy.html" class="text-white/50 hover:text-white hover:drop-shadow-md transition-all duration-300 tracking-wider">privacy</a>
-      <a href="terms.html" class="text-white/50 hover:text-white hover:drop-shadow-md transition-all duration-300 tracking-wider">terms</a>
-    </div>
-
-  </footer>
-
-  <!-- FAQ Bot UI -->
-  <div id="faq-bot" class="fixed bottom-6 right-6 w-80 sm:w-96 bg-[#0a0a0a]/95 backdrop-blur-xl border border-neon/30 rounded-2xl shadow-[0_10px_40px_rgba(236,72,153,0.15)] z-[60] transition-all duration-500 ease-out bot-slide-down flex flex-col overflow-hidden nav-pill-liquid-border" style="padding: 1px;">
-    <div class="nav-pill-inner !rounded-[15px] !p-0 flex-col h-[500px] max-h-[70vh] items-stretch justify-start">
-      <div class="flex items-center justify-between p-4 border-b border-white/10 bg-black/40 w-full shrink-0">
-        <div class="flex items-center space-x-2">
-          <span class="material-symbols-outlined text-neon">smart_toy</span>
-          <span class="font-headline font-bold text-white tracking-widest text-sm">THETHA.BOT</span>
-        </div>
-        <button id="close-bot-btn" class="text-white/50 hover:text-white transition-colors" aria-label="Close FAQ">
-          <span class="material-symbols-outlined text-lg">close</span>
-        </button>
-      </div>
-      
-      <div class="p-4 flex-grow overflow-y-auto space-y-4 w-full" id="faq-content">
-        <!-- Message bubble -->
-        <div class="bg-white/5 rounded-2xl rounded-tl-sm p-3 inline-block max-w-[85%] border border-white/5">
-          <p class="text-sm font-body text-gray-300 leading-relaxed">Hi there! I can help answer some common questions about ThethaAI. What would you like to know?</p>
-        </div>
-        <!-- FAQ buttons container -->
-        <div id="faq-options" class="flex flex-col space-y-2 mt-4">
-          <!-- Will be filled by JS -->
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-[300px] sm:h-[400px] md:h-[500px] z-0 pointer-events-none origin-bottom">
+<div class="absolute top-[20%] left-[10%] w-64 md:w-96 h-64 md:h-96 bg-neon/30 blur-[100px] md:blur-[140px] rounded-full z-[-1] animate-glow-pulse"></div>
+<div class="absolute top-[30%] right-[10%] w-64 md:w-96 h-64 md:h-96 bg-primary/20 blur-[100px] md:blur-[140px] rounded-full z-[-1] animate-glow-pulse" style="animation-delay: 1.5s;"></div>
+<div class="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[120%] h-64 bg-neon/10 blur-[100px] z-[-1]"></div>
+<div class="absolute inset-0 flex items-end justify-center animate-flow neon-mesh-glow">
+<svg class="w-full min-w-[200%] sm:min-w-[150%] md:min-w-[120%] lg:min-w-[100%]" preserveaspectratio="none" style="height: 100%;" viewbox="0 0 1000 400">
+<path class="mesh-path" d="M0,350 Q250,300 500,350 T1000,350" fill="none" opacity="1.0" stroke="#EC4899" stroke-width="1.5"></path>
+<path class="mesh-path" d="M0,330 Q250,280 500,330 T1000,330" fill="none" opacity="0.8" stroke="#EC4899" stroke-width="1.5" style="animation-delay: 0.2s;"></path>
+<path class="mesh-path" d="M0,310 Q250,260 500,310 T1000,310" fill="none" opacity="0.6" stroke="#EC4899" stroke-width="1.5" style="animation-delay: 0.4s;"></path>
+<path class="mesh-path" d="M0,290 Q250,240 500,290 T1000,290" fill="none" opacity="0.4" stroke="#EC4899" stroke-width="1.5" style="animation-delay: 0.6s;"></path>
+<path class="mesh-path" d="M0,270 Q250,220 500,270 T1000,270" fill="none" opacity="0.2" stroke="#EC4899" stroke-width="1.5" style="animation-delay: 0.8s;"></path>
+<path d="M250,220 V400" fill="none" opacity="0.4" stroke="#EC4899" stroke-dasharray="3 6" stroke-width="1.5"></path>
+<path d="M500,270 V400" fill="none" opacity="0.4" stroke="#EC4899" stroke-dasharray="3 6" stroke-width="1.5"></path>
+<path d="M750,220 V400" fill="none" opacity="0.4" stroke="#EC4899" stroke-dasharray="3 6" stroke-width="1.5"></path>
+<path d="M0,380 Q250,340 500,380 T1000,380" fill="none" opacity="0.9" stroke="#EC4899" stroke-width="2" style="filter: drop-shadow(0 0 10px #EC4899)"></path>
+</svg>
+</div>
+</div>
+</section>
+</main>
+<footer class="w-full flex flex-col md:flex-row items-center justify-between border-t border-neon/20 bg-[#0a0a0a]/80 backdrop-blur-md px-6 md:px-12 py-6 md:py-4 relative z-50 font-body space-y-4 md:space-y-0 shadow-[0_-5px_20px_rgba(236,72,153,0.05)]">
+<a class="text-white/50 text-xs sm:text-sm font-medium tracking-wide hover:text-white transition-all" href="index.html">
+      th<span class="text-neon drop-shadow-[0_0_5px_rgba(236,72,153,0.8)]">e</span>th<span class="text-neon drop-shadow-[0_0_5px_rgba(236,72,153,0.8)]">a</span> ai © <span id="current-year"></span>
+</a>
+<div class="flex items-center space-x-8 md:space-x-6">
+<a aria-label="GitHub" class="text-white/50 hover:text-neon hover:drop-shadow-[0_0_8px_rgba(236,72,153,0.8)] transition-all duration-300 transform hover:-translate-y-1" href="https://github.com/ThethaAI" rel="noopener noreferrer" target="_blank">
+<svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+</a>
+<a aria-label="Twitter" class="text-white/50 hover:text-neon hover:drop-shadow-[0_0_8px_rgba(236,72,153,0.8)] transition-all duration-300 transform hover:-translate-y-1" href="https://twitter.com">
+<svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewbox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+</a>
+<a aria-label="Email" class="text-white/50 hover:text-neon hover:drop-shadow-[0_0_8px_rgba(236,72,153,0.8)] transition-all duration-300 transform hover:-translate-y-1" href="mailto:hello@thetha.ai">
+<svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewbox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"></path></svg>
+</a>
+</div>
+<div class="flex space-x-6 text-xs sm:text-sm font-medium">
+<a class="text-white/50 hover:text-white hover:drop-shadow-md transition-all duration-300 tracking-wider" href="privacy_policy.html">privacy</a>
+<a class="text-white/50 hover:text-white hover:drop-shadow-md transition-all duration-300 tracking-wider" href="terms.html">terms</a>
+</div>
+</footer>
+<!-- FAQ Bot UI -->
+<div class="fixed bottom-6 right-6 w-80 sm:w-96 bg-[#0a0a0a]/95 backdrop-blur-xl border border-neon/30 rounded-2xl shadow-[0_10px_40px_rgba(236,72,153,0.15)] z-[60] transition-all duration-500 ease-out bot-slide-down flex flex-col overflow-hidden nav-pill-liquid-border" id="faq-bot" style="padding: 1px;">
+<div class="nav-pill-inner !rounded-[15px] !p-0 flex-col h-[500px] max-h-[70vh] items-stretch justify-start">
+<div class="flex items-center justify-between p-4 border-b border-white/10 bg-black/40 w-full shrink-0">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-neon">smart_toy</span>
+<span class="font-headline font-bold text-white tracking-widest text-sm">THETHA.BOT</span>
+</div>
+<button aria-label="Close FAQ" class="text-white/50 hover:text-white transition-colors" id="close-bot-btn">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+<div class="p-4 flex-grow overflow-y-auto space-y-4 w-full" id="faq-content">
+<!-- Message bubble -->
+<div class="bg-white/5 rounded-2xl rounded-tl-sm p-3 inline-block max-w-[85%] border border-white/5">
+<p class="text-sm font-body text-gray-300 leading-relaxed">Hi there! I can help answer some common questions about ThethaAI. What would you like to know?</p>
+</div>
+<!-- FAQ buttons container -->
+<div class="flex flex-col space-y-2 mt-4" id="faq-options">
+<!-- Will be filled by JS -->
+</div>
+</div>
+</div>
+</div>
+<script>
     document.getElementById('current-year').textContent = new Date().getFullYear();
 
     // FAQ Bot Logic

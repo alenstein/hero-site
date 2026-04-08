@@ -101,35 +101,91 @@
         .vowel-glow {
             text-shadow: 0 0 8px rgba(247, 81, 161, 0.6);
         }
-    </style>
+    
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .nav-pill-liquid-border {
+      position: relative;
+      padding: 1.5px;
+      background: rgba(236, 72, 153, 0.15);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .nav-pill-liquid-border:hover {
+      box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
+    }
+    .nav-pill-liquid-border::before {
+      content: '';
+      position: absolute;
+      width: 250%;
+      height: 400%;
+      background: conic-gradient(from 0deg, transparent 0% 60%, #EC4899 80%, #EC4899 90%, transparent 100%);
+      animation: rotate 3s linear infinite;
+      z-index: -2;
+    }
+    .nav-pill-inner {
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 10, 10, 0.95);
+      border-radius: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.75rem;
+      z-index: 1;
+    }
+    @media (min-width: 768px) {
+      .nav-pill-inner {
+        padding: 0 2.5rem;
+      }
+    }
+    
+    .bot-slide-up {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .bot-slide-down {
+      transform: translateY(20px);
+      opacity: 0;
+      pointer-events: none;
+    }
+</style>
 </head>
-<body class="selection:bg-primary-container selection:text-on-primary-container">
+<body class="selection:bg-primary-container selection:text-on-primary-container font-body overflow-x-hidden">
 <!-- Top Navigation Pill -->
-<header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-center p-6">
-<nav class="bg-black/40 backdrop-blur-xl rounded-full px-8 py-3 flex items-center justify-between w-fit max-w-[90%] border-[1.5px] border-primary-container/30 shadow-[0_0_40px_rgba(247,81,161,0.15)] pulsing-border-animation">
-<div class="flex items-center gap-12">
-<a class="text-2xl font-bold text-on-surface lowercase tracking-tight" href="index.html">
-                    th<span class="text-primary-container vowel-glow">e</span>th<span class="text-primary-container vowel-glow">a</span>
+<nav aria-label="Main Navigation" class="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] sm:w-[90%] max-w-5xl h-14 sm:h-16 rounded-full backdrop-blur-2xl z-50 nav-pill-liquid-border">
+<div class="nav-pill-inner rounded-full">
+<div class="flex items-center space-x-3 sm:space-x-6">
+<a class="text-white/70 hover:text-neon transition-colors uppercase text-xs sm:text-sm tracking-wide font-label hidden sm:block" href="solutions.html">solutions</a>
+<a class="text-white/70 hover:text-neon transition-colors uppercase text-xs sm:text-sm tracking-wide font-label hidden sm:block" href="coming_soon.html">pricing</a>
+<a class="text-white/70 hover:text-neon transition-colors sm:hidden flex items-center" href="#menu"><span class="material-symbols-outlined text-lg">menu</span></a>
+</div>
+<div class="text-xl sm:text-2xl font-headline tracking-widest font-bold absolute left-1/2 -translate-x-1/2">
+<a aria-label="thetha home" class="hover:text-white transition-colors duration-300" href="index.html">
+          th<span class="text-neon drop-shadow-[0_0_5px_rgba(236,72,153,0.8)]">e</span>th<span class="text-neon drop-shadow-[0_0_5px_rgba(236,72,153,0.8)]">a</span>
 </a>
-<div class="hidden md:flex items-center gap-8 font-inter lowercase tracking-tight text-sm">
-<a class="text-gray-400 hover:text-primary transition-all duration-300 hover:scale-105" href="index.html#solutions">vision</a>
-<a class="text-gray-400 hover:text-primary transition-all duration-300 hover:scale-105" href="index.html#features">features</a>
-<a class="text-gray-400 hover:text-primary transition-all duration-300 hover:scale-105" href="#">security</a>
 </div>
-</div>
-<div class="ml-12">
-<button class="bg-primary-container text-on-primary-container px-6 py-2 rounded-full text-sm font-semibold hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(247,81,161,0.3)] lowercase">
-                    join pulse
-                </button>
+<div class="flex items-center space-x-3 sm:space-x-4">
+<a aria-label="Developer API" class="text-white/70 hover:text-neon transition-colors flex items-center justify-center hover:scale-110 transform duration-200" href="api.html">
+<span class="material-symbols-outlined text-lg sm:text-xl relative"><span class="absolute inset-0 bg-neon blur-md opacity-0 hover:opacity-50 transition-opacity"></span>code</span>
+</a>
+<a aria-label="Contact Support" class="text-white/70 hover:text-neon transition-colors flex items-center justify-center hover:scale-110 transform duration-200" href="#chat" id="chat-toggle-btn">
+<span class="material-symbols-outlined text-lg sm:text-xl relative"><span class="absolute inset-0 bg-neon blur-md opacity-0 hover:opacity-50 transition-opacity"></span>chat</span>
+</a></div>
 </div>
 </nav>
-</header>
 <main class="relative min-h-screen pt-32 pb-48">
 <!-- Content Container -->
 <article class="max-w-4xl mx-auto px-6 relative z-10">
 <!-- Header Section -->
 <header class="mb-20 text-center md:text-left">
-<h1 class="text-5xl md:text-6xl font-extrabold text-on-surface lowercase tracking-tighter mb-4 leading-none">
+<h1 class="text-5xl md:text-6xl font-extrabold text-on-surface lowercase tracking-tighter mb-4 leading-none font-headline">
                     terms of service
                 </h1>
 <p class="text-primary font-medium tracking-wide uppercase text-xs">
@@ -143,10 +199,9 @@
                         Welcome to Thetha. By accessing or using our platform, you agree to be bound by these Terms of Service. Our mission is to provide an accessibility-first AI platform for underserved African languages, specifically designed for users who are blind, dyslexic, or living with disabilities.
                     </p>
 </section>
-
 <!-- 01 -->
 <section class="space-y-6">
-<h2 class="text-2xl font-bold text-on-surface lowercase tracking-tight flex items-center gap-3">
+<h2 class="text-2xl font-bold text-on-surface lowercase tracking-tight flex items-center gap-3 font-headline">
 <span class="text-neon-pink">01.</span> description of services
                     </h2>
 <div class="bg-surface-container-low p-8 rounded-lg border-l-2 border-neon-pink/20 space-y-4">
@@ -169,40 +224,37 @@
 </ul>
 </div>
 </section>
-
 <!-- 02 -->
 <section class="space-y-6">
-<h2 class="text-2xl font-bold text-on-surface lowercase tracking-tight flex items-center gap-3">
+<h2 class="text-2xl font-bold text-on-surface lowercase tracking-tight flex items-center gap-3 font-headline">
 <span class="text-neon-pink">02.</span> ai accuracy &amp; disclaimer
                     </h2>
 <div class="space-y-4 text-on-surface-variant leading-relaxed">
 <p>You acknowledge that Thetha utilizes artificial intelligence and machine learning models.</p>
 <div class="grid gap-6">
 <div class="group p-1 rounded-lg bg-gradient-to-r from-neon-pink/10 to-transparent">
-<h3 class="text-on-surface font-semibold lowercase mb-1">language nuance</h3>
+<h3 class="text-on-surface font-semibold lowercase mb-1 font-headline">language nuance</h3>
 <p class="text-sm">Because we focus on low-resource languages, the AI may occasionally produce inaccuracies in transcription or translation.</p>
 </div>
 <div class="group p-1 rounded-lg bg-gradient-to-r from-neon-pink/10 to-transparent">
-<h3 class="text-on-surface font-semibold lowercase mb-1">"as-is" basis</h3>
+<h3 class="text-on-surface font-semibold lowercase mb-1 font-headline">"as-is" basis</h3>
 <p class="text-sm">Services are provided "as-is." We do not guarantee 100% accuracy and recommend that critical communications be verified by a human speaker of the language.</p>
 </div>
 </div>
 </div>
 </section>
-
 <!-- 03 -->
 <section class="space-y-6">
-<h2 class="text-2xl font-bold text-on-surface lowercase tracking-tight flex items-center gap-3">
+<h2 class="text-2xl font-bold text-on-surface lowercase tracking-tight flex items-center gap-3 font-headline">
 <span class="text-neon-pink">03.</span> accessibility commitment
                     </h2>
 <p class="text-on-surface-variant leading-relaxed">
                         We are committed to making our platform usable for everyone. While we strive for the highest accessibility standards (such as WCAG compliance), if you encounter a barrier, please contact us so we can prioritize a fix.
                     </p>
 </section>
-
 <!-- 04 -->
 <section class="space-y-6">
-<h2 class="text-2xl font-bold text-on-surface lowercase tracking-tight flex items-center gap-3">
+<h2 class="text-2xl font-bold text-on-surface lowercase tracking-tight flex items-center gap-3 font-headline">
 <span class="text-neon-pink">04.</span> user data &amp; privacy
                     </h2>
 <div class="bg-surface-container-low p-8 rounded-lg border-l-2 border-neon-pink/20 space-y-4">
@@ -225,10 +277,9 @@
 </ul>
 </div>
 </section>
-
 <!-- 05 -->
 <section class="space-y-6">
-<h2 class="text-2xl font-bold text-on-surface lowercase tracking-tight flex items-center gap-3">
+<h2 class="text-2xl font-bold text-on-surface lowercase tracking-tight flex items-center gap-3 font-headline">
 <span class="text-neon-pink">05.</span> prohibited conduct
                     </h2>
 <p class="text-on-surface-variant leading-relaxed">
@@ -249,40 +300,36 @@
                             </li>
 </ul>
 </section>
-
 <!-- 06 -->
 <section class="space-y-6">
-<h2 class="text-2xl font-bold text-on-surface lowercase tracking-tight flex items-center gap-3">
+<h2 class="text-2xl font-bold text-on-surface lowercase tracking-tight flex items-center gap-3 font-headline">
 <span class="text-neon-pink">06.</span> limitation of liability
                     </h2>
 <p class="text-on-surface-variant leading-relaxed">
                         Thetha and its creators shall not be liable for any indirect, incidental, or consequential damages resulting from the use or inability to use the service, including errors in translation that may lead to misunderstandings.
                     </p>
 </section>
-
 <!-- 07 -->
 <section class="space-y-6">
-<h2 class="text-2xl font-bold text-on-surface lowercase tracking-tight flex items-center gap-3">
+<h2 class="text-2xl font-bold text-on-surface lowercase tracking-tight flex items-center gap-3 font-headline">
 <span class="text-neon-pink">07.</span> termination
                     </h2>
 <p class="text-on-surface-variant leading-relaxed">
                         We reserve the right to suspend or terminate access to our platform if these terms are violated or if the service is used in a manner that harms the community or the platform’s integrity.
                     </p>
 </section>
-
 <!-- 08 -->
 <section class="space-y-6">
-<h2 class="text-2xl font-bold text-on-surface lowercase tracking-tight flex items-center gap-3">
+<h2 class="text-2xl font-bold text-on-surface lowercase tracking-tight flex items-center gap-3 font-headline">
 <span class="text-neon-pink">08.</span> governing law
                     </h2>
 <p class="text-on-surface-variant leading-relaxed">
                         These terms are governed by and construed in accordance with the laws of Zimbabwe. Any disputes arising from these terms will be subject to the jurisdiction of the courts in Bulawayo.
                     </p>
 </section>
-
 <!-- 09 -->
 <section class="space-y-6 pt-8 border-t border-outline-variant/10">
-<h2 class="text-2xl font-bold text-on-surface lowercase tracking-tight flex items-center gap-3">
+<h2 class="text-2xl font-bold text-on-surface lowercase tracking-tight flex items-center gap-3 font-headline">
 <span class="text-neon-pink">09.</span> contact us
                     </h2>
 <div class="grid md:grid-cols-2 gap-8">
@@ -299,7 +346,6 @@
 </div>
 </div>
 </section>
-
 </div>
 </article>
 <!-- Concentric Glowing Waves (Background) -->
@@ -311,36 +357,123 @@
 </svg>
 </div>
 </main>
-<footer class="bg-black py-16 px-8 relative z-20 border-t border-gray-900/50">
-<div class="w-full max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-<div class="flex flex-col items-center md:items-start gap-4">
-<a class="text-xl font-bold text-on-surface lowercase tracking-tight" href="index.html">
-                    th<span class="text-primary-container">e</span>th<span class="text-primary-container">a</span>
+<footer class="w-full flex flex-col md:flex-row items-center justify-between border-t border-neon/20 bg-[#0a0a0a]/80 backdrop-blur-md px-6 md:px-12 py-6 md:py-4 relative z-50 font-body space-y-4 md:space-y-0 shadow-[0_-5px_20px_rgba(236,72,153,0.05)]">
+<a class="text-white/50 text-xs sm:text-sm font-medium tracking-wide hover:text-white transition-all" href="index.html">
+      th<span class="text-neon drop-shadow-[0_0_5px_rgba(236,72,153,0.8)]">e</span>th<span class="text-neon drop-shadow-[0_0_5px_rgba(236,72,153,0.8)]">a</span> ai © <span id="current-year"></span>
 </a>
-<p class="text-gray-500 font-inter lowercase text-sm tracking-wide">
-                    thetha ai @ 2026. all rights reserved.
-                </p>
-</div>
-<div class="flex gap-10">
-<a class="text-gray-500 hover:text-primary-container transition-colors duration-300" href="#">
-<svg aria-hidden="true" class="w-6 h-6 fill-current" viewbox="0 0 24 24">
-<path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
-</svg>
+<div class="flex items-center space-x-8 md:space-x-6">
+<a aria-label="GitHub" class="text-white/50 hover:text-neon hover:drop-shadow-[0_0_8px_rgba(236,72,153,0.8)] transition-all duration-300 transform hover:-translate-y-1" href="https://github.com/ThethaAI" rel="noopener noreferrer" target="_blank">
+<svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path></svg>
 </a>
-<a class="text-gray-500 hover:text-primary-container transition-colors duration-300" href="#">
-<svg aria-hidden="true" class="w-6 h-6 fill-current" viewbox="0 0 24 24">
-<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
-</svg>
+<a aria-label="Twitter" class="text-white/50 hover:text-neon hover:drop-shadow-[0_0_8px_rgba(236,72,153,0.8)] transition-all duration-300 transform hover:-translate-y-1" href="https://twitter.com">
+<svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewbox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
 </a>
-<a class="text-gray-500 hover:text-primary-container transition-colors duration-300" href="mailto:support@thetha.co.zw">
-<span class="material-symbols-outlined text-2xl">alternate_email</span>
+<a aria-label="Email" class="text-white/50 hover:text-neon hover:drop-shadow-[0_0_8px_rgba(236,72,153,0.8)] transition-all duration-300 transform hover:-translate-y-1" href="mailto:hello@thetha.ai">
+<svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewbox="0 0 24 24"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"></path></svg>
 </a>
 </div>
-<div class="flex gap-8 font-inter lowercase text-sm tracking-wide">
-<a class="text-primary hover:text-primary-container transition-colors" href="terms.html">terms</a>
-<a class="text-gray-500 hover:text-primary transition-colors" href="privacy_policy.html">privacy</a>
-<a class="text-gray-500 hover:text-primary transition-colors" href="#">security</a>
-</div>
+<div class="flex space-x-6 text-xs sm:text-sm font-medium">
+<a class="text-white/50 hover:text-white hover:drop-shadow-md transition-all duration-300 tracking-wider" href="privacy_policy.html">privacy</a>
+<a class="text-white/50 hover:text-white hover:drop-shadow-md transition-all duration-300 tracking-wider" href="terms.html">terms</a>
 </div>
 </footer>
-</body></html>
+<div class="fixed bottom-6 right-6 w-80 sm:w-96 bg-[#0a0a0a]/95 backdrop-blur-xl border border-neon/30 rounded-2xl shadow-[0_10px_40px_rgba(236,72,153,0.15)] z-[60] transition-all duration-500 ease-out bot-slide-down flex flex-col overflow-hidden nav-pill-liquid-border" id="faq-bot" style="padding: 1px;">
+<div class="nav-pill-inner !rounded-[15px] !p-0 flex-col h-[500px] max-h-[70vh] items-stretch justify-start">
+<div class="flex items-center justify-between p-4 border-b border-white/10 bg-black/40 w-full shrink-0">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-neon">smart_toy</span>
+<span class="font-headline font-bold text-white tracking-widest text-sm">THETHA.BOT</span>
+</div>
+<button aria-label="Close FAQ" class="text-white/50 hover:text-white transition-colors" id="close-bot-btn">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+<div class="p-4 flex-grow overflow-y-auto space-y-4 w-full" id="faq-content">
+<!-- Message bubble -->
+<div class="bg-white/5 rounded-2xl rounded-tl-sm p-3 inline-block max-w-[85%] border border-white/5">
+<p class="text-sm font-body text-gray-300 leading-relaxed">Hi there! I can help answer some common questions about ThethaAI. What would you like to know?</p>
+</div>
+<!-- FAQ buttons container -->
+<div class="flex flex-col space-y-2 mt-4" id="faq-options">
+<!-- Will be filled by JS -->
+</div>
+</div>
+</div>
+</div><script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // FAQ Bot Logic
+    const chatToggleBtn = document.getElementById('chat-toggle-btn');
+    const closeBotBtn = document.getElementById('close-bot-btn');
+    const faqBot = document.getElementById('faq-bot');
+    const faqContent = document.getElementById('faq-content');
+    const faqOptions = document.getElementById('faq-options');
+    
+    let isBotOpen = false;
+    let faqDataLoaded = false;
+    
+    function toggleBot(event) {
+      if(event) event.preventDefault();
+      isBotOpen = !isBotOpen;
+      if (isBotOpen) {
+        faqBot.classList.remove('bot-slide-down');
+        faqBot.classList.add('bot-slide-up');
+        if (!faqDataLoaded) loadFAQ();
+      } else {
+        faqBot.classList.remove('bot-slide-up');
+        faqBot.classList.add('bot-slide-down');
+      }
+    }
+    
+    chatToggleBtn.addEventListener('click', toggleBot);
+    closeBotBtn.addEventListener('click', toggleBot);
+    
+    // Auto-scroll content
+    function scrollToBottom() {
+      faqContent.scrollTop = faqContent.scrollHeight;
+    }
+    
+    function appendAnswer(question, answer) {
+      // Create user message 
+      const qDiv = document.createElement('div');
+      qDiv.className = 'bg-neon/20 border border-neon/30 rounded-2xl rounded-tr-sm p-3 max-w-[85%] ml-auto text-sm font-body text-white self-end flex';
+      qDiv.textContent = question;
+      faqContent.appendChild(qDiv);
+      
+      // Hide options temporarily to show interaction
+      faqOptions.style.display = 'none';
+      scrollToBottom();
+      
+      // Simulate reply delay
+      setTimeout(() => {
+        const aDiv = document.createElement('div');
+        aDiv.className = 'bg-white/5 rounded-2xl rounded-tl-sm p-3 inline-block max-w-[85%] border border-white/5 text-sm font-body text-gray-300 leading-relaxed self-start';
+        aDiv.textContent = answer;
+        faqContent.appendChild(aDiv);
+        
+        // Show options again at the bottom
+        faqOptions.style.display = 'flex';
+        faqContent.appendChild(faqOptions);
+        scrollToBottom();
+      }, 600);
+    }
+    
+    async function loadFAQ() {
+      try {
+        const response = await fetch('./faq.json');
+        const data = await response.json();
+        
+        data.forEach(item => {
+          const btn = document.createElement('button');
+          btn.className = 'text-left w-full bg-black/40 hover:bg-neon/20 border border-white/10 hover:border-neon/50 transition-colors rounded-xl p-3 text-xs sm:text-sm text-gray-300 hover:text-white font-medium';
+          btn.textContent = item.q;
+          btn.onclick = () => appendAnswer(item.q, item.a);
+          faqOptions.appendChild(btn);
+        });
+        
+        faqDataLoaded = true;
+      } catch (e) {
+        console.error('Failed to load FAQs:', e);
+      }
+    }
+  </script></body></html>

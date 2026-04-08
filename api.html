@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #000000; color: #ffffff; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+        .code-syntax-keyword { color: #ff87ba; }
+        .code-syntax-string { color: #8f93ff; }
+        .code-syntax-comment { color: #757575; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0e0e0e; }
+        ::-webkit-scrollbar-thumb { background: #262626; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #484848; }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-dim": "#8f93ff",
+              "surface-bright": "#2c2c2c",
+              "surface-variant": "#262626",
+              "inverse-surface": "#f9f9f9",
+              "secondary": "#e2e2e2",
+              "on-surface-variant": "#ababab",
+              "on-primary-fixed": "#000000",
+              "on-primary-container": "#4b002a",
+              "inverse-on-surface": "#555555",
+              "surface-container-lowest": "#000000",
+              "tertiary-fixed-dim": "#959aff",
+              "on-secondary-fixed": "#3e4040",
+              "surface-tint": "#ff87ba",
+              "primary-container": "#ff6daf",
+              "on-secondary-fixed-variant": "#5c0035",
+              "error-dim": "#d73357",
+              "secondary-container": "#454747",
+              "on-secondary-container": "#d0d0d0",
+              "tertiary-fixed": "#a5a9ff",
+              "on-tertiary": "#100f82",
+              "on-error-container": "#ffb2b9",
+              "primary-dim": "#ff67ad",
+              "primary": "#ff87ba",
+              "on-secondary": "#505252",
+              "inverse-primary": "#b5146e",
+              "surface": "#0e0e0e",
+              "on-background": "#ffffff",
+              "primary-fixed-dim": "#fa53a4",
+              "tertiary": "#989dff",
+              "surface-container-low": "#131313",
+              "outline-variant": "#484848",
+              "background": "#0e0e0e",
+              "surface-container-highest": "#262626",
+              "secondary-fixed": "#e2e2e2",
+              "on-primary-fixed-variant": "#5c0035",
+              "on-error": "#490013",
+              "secondary-fixed-dim": "#d4d4d4",
+              "on-tertiary-container": "#040069",
+              "tertiary-container": "#898efa",
+              "surface-container-high": "#1f1f1f",
+              "surface-container": "#191919",
+              "on-tertiary-fixed-variant": "#272993",
+              "secondary-dim": "#d4d4d4",
+              "outline": "#757575",
+              "primary-fixed": "#ff6daf",
+              "error": "#ff6e84",
+              "on-tertiary-fixed": "#030062",
+              "on-surface": "#ffffff",
+              "on-primary": "#600037",
+              "error-container": "#a70138",
+              "surface-dim": "#0e0e0e"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-black text-on-surface selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-black/60 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-8 h-16 w-full shadow-[0_0_40px_rgba(236,72,153,0.05)]">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-pink-500 lowercase tracking-tighter">thetha</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="text-pink-500 font-bold border-b-2 border-pink-500 pb-1 lowercase font-inter tracking-wider" href="#">documentation</a>
+<a class="text-zinc-400 hover:text-white transition-colors hover:bg-white/5 transition-all duration-300 lowercase font-inter tracking-wider" href="#">playground</a>
+<a class="text-zinc-400 hover:text-white transition-colors hover:bg-white/5 transition-all duration-300 lowercase font-inter tracking-wider" href="#">changelog</a>
+<a class="text-zinc-400 hover:text-white transition-colors hover:bg-white/5 transition-all duration-300 lowercase font-inter tracking-wider" href="#">support</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-white/5 border border-outline-variant/30 rounded-full px-4 py-1.5 gap-2 group focus-within:border-primary/50 transition-all">
+<span class="material-symbols-outlined text-zinc-500 text-sm">search</span>
+<input class="bg-transparent border-none text-sm focus:ring-0 text-white w-48 placeholder:text-zinc-600" placeholder="Search documentation..." type="text"/>
+<kbd class="text-[10px] text-zinc-500 bg-zinc-900 px-1.5 py-0.5 rounded border border-zinc-800">⌘K</kbd>
+</div>
+<button class="bg-primary text-on-primary-fixed px-6 py-2 rounded-full font-bold text-sm lowercase tracking-wider scale-95 active:opacity-80 transition-all">sign in</button>
+</div>
+</nav>
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 bg-zinc-950 border-r border-zinc-900 flex flex-col py-6 px-4 gap-4 overflow-y-auto">
+<div class="mb-4 px-2">
+<div class="text-pink-500 font-bold lowercase font-inter text-sm">documentation</div>
+<div class="text-zinc-600 text-[10px] uppercase tracking-widest mt-1">v2.4.0</div>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-zinc-500 hover:text-zinc-200 hover:bg-zinc-900 transition-all duration-200 ease-in-out lowercase font-inter text-sm group" href="#">
+<span class="material-symbols-outlined text-lg group-hover:text-primary transition-colors">rocket_launch</span>
+<span>getting started</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-pink-500 font-semibold border-r-2 border-pink-500 bg-pink-500/5 transition-all duration-200 ease-in-out lowercase font-inter text-sm" href="#">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">lock</span>
+<span>authentication</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-zinc-500 hover:text-zinc-200 hover:bg-zinc-900 transition-all duration-200 ease-in-out lowercase font-inter text-sm group" href="#">
+<span class="material-symbols-outlined text-lg group-hover:text-primary transition-colors">api</span>
+<span>transcribe api</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-zinc-500 hover:text-zinc-200 hover:bg-zinc-900 transition-all duration-200 ease-in-out lowercase font-inter text-sm group" href="#">
+<span class="material-symbols-outlined text-lg group-hover:text-primary transition-colors">translate</span>
+<span>translate api</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-zinc-500 hover:text-zinc-200 hover:bg-zinc-900 transition-all duration-200 ease-in-out lowercase font-inter text-sm group" href="#">
+<span class="material-symbols-outlined text-lg group-hover:text-primary transition-colors">archive</span>
+<span>archive api</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-zinc-500 hover:text-zinc-200 hover:bg-zinc-900 transition-all duration-200 ease-in-out lowercase font-inter text-sm group" href="#">
+<span class="material-symbols-outlined text-lg group-hover:text-primary transition-colors">terminal</span>
+<span>sdks</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-zinc-900 flex flex-col gap-4">
+<button class="w-full bg-zinc-900 hover:bg-zinc-800 text-white border border-outline-variant/30 py-2.5 rounded-full text-xs font-semibold lowercase tracking-wide transition-all active:scale-95">
+                request api key
+            </button>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-zinc-500 hover:text-zinc-200 hover:bg-zinc-900 transition-all lowercase font-inter text-xs" href="#">
+<span class="material-symbols-outlined text-base">chat_bubble</span>
+<span>feedback</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg text-zinc-500 hover:text-zinc-200 hover:bg-zinc-900 transition-all lowercase font-inter text-xs" href="#">
+<span class="material-symbols-outlined text-base">check_circle</span>
+<span>status</span>
+</a>
+</div>
+</div>
+</aside>
+<!-- Main Content Layout -->
+<main class="ml-64 pt-16 min-h-screen">
+<div class="grid grid-cols-1 xl:grid-cols-2 min-h-[calc(100vh-4rem)]">
+<!-- Left Side: Documentation Content -->
+<div class="p-12 lg:p-16 max-w-3xl">
+<nav class="flex items-center gap-2 text-xs text-zinc-500 mb-8 uppercase tracking-widest font-medium">
+<a class="hover:text-primary" href="#">Docs</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-zinc-300">Authentication</span>
+</nav>
+<h1 class="text-5xl lg:text-6xl font-black lowercase tracking-tighter mb-8 leading-tight">
+                    authentication
+                </h1>
+<div class="space-y-12 text-secondary/90 leading-relaxed font-body">
+<section>
+<p class="text-lg">
+                            To access the <span class="text-primary font-semibold">thetha</span> API, you need to provide an API key in the <code class="bg-zinc-900 text-pink-400 px-2 py-0.5 rounded border border-white/5 font-mono text-sm">Authorization</code> header of your requests.
+                        </p>
+</section>
+<section class="space-y-4">
+<h2 class="text-2xl font-bold text-white lowercase">api key security</h2>
+<p>
+                            Keep your API key secure and do not share it in client-side code. If your key is compromised, revoke it immediately through the dashboard to prevent unauthorized usage.
+                        </p>
+<!-- Info Box -->
+<div class="bg-surface-container-low border-l-4 border-primary p-6 rounded-r-xl mt-6">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<div class="space-y-2">
+<p class="font-bold text-white text-sm">Security Best Practice</p>
+<p class="text-sm text-zinc-400">Always use environment variables for keys. Never commit <code class="bg-black/40 px-1 rounded">.env</code> files to public repositories.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="space-y-6 pt-6">
+<h3 class="text-xl font-bold text-white lowercase">authorization types</h3>
+<div class="grid gap-4">
+<div class="p-6 bg-surface-container rounded-xl border border-outline-variant/20 hover:border-primary/30 transition-all">
+<div class="flex justify-between items-start mb-2">
+<span class="font-bold text-white">Bearer Token</span>
+<span class="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded-full uppercase">Default</span>
+</div>
+<p class="text-sm text-zinc-400">Standard authentication using the Bearer scheme. Recommended for most integrations.</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Right Side: Code Panel -->
+<div class="bg-[#050505] border-l border-zinc-900/50 p-8 lg:p-12 relative overflow-hidden">
+<!-- Topographic background element (decorative) -->
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.1)_0%,transparent_50%)]"></div>
+<!-- Decorative Map-like lines would go here if SVG allowed, but using subtle gradient instead -->
+</div>
+<div class="relative z-10 sticky top-24">
+<!-- Code Tabs -->
+<div class="flex items-center gap-1 mb-6 bg-zinc-900/50 p-1 rounded-full w-fit border border-zinc-800">
+<button class="px-5 py-1.5 rounded-full text-xs font-bold text-white bg-zinc-800 transition-all">cURL</button>
+<button class="px-5 py-1.5 rounded-full text-xs font-bold text-zinc-500 hover:text-white transition-all">Python</button>
+<button class="px-5 py-1.5 rounded-full text-xs font-bold text-zinc-500 hover:text-white transition-all">Node.js</button>
+</div>
+<!-- Code Block -->
+<div class="bg-black rounded-xl border border-white/10 shadow-2xl overflow-hidden group">
+<div class="flex items-center justify-between px-4 py-2 border-b border-white/5 bg-white/5">
+<div class="flex gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
+</div>
+<button class="text-zinc-500 hover:text-primary transition-colors flex items-center gap-2">
+<span class="text-[10px] uppercase font-bold tracking-widest">copy</span>
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+<div class="p-6 font-mono text-sm leading-relaxed overflow-x-auto">
+<pre class="whitespace-pre"><span class="code-syntax-keyword">curl</span> -X GET <span class="code-syntax-string">"https://api.thetha.ai/v1/auth"</span> \
+     -H <span class="code-syntax-string">"Authorization: Bearer YOUR_API_KEY"</span>
+</pre>
+</div>
+</div>
+<!-- Response Preview -->
+<div class="mt-12">
+<h4 class="text-xs font-bold text-zinc-500 uppercase tracking-widest mb-4">Sample Response</h4>
+<div class="bg-zinc-900/30 rounded-xl p-6 border border-zinc-800/50 font-mono text-sm">
+<pre class="text-zinc-400">{
+  <span class="text-tertiary">"status"</span>: <span class="text-primary">"success"</span>,
+  <span class="text-tertiary">"authenticated"</span>: <span class="text-primary">true</span>,
+  <span class="text-tertiary">"user_id"</span>: <span class="text-tertiary-dim">"usr_9x442km1"</span>,
+  <span class="text-tertiary">"scope"</span>: [
+    <span class="text-tertiary-dim">"transcribe"</span>,
+    <span class="text-tertiary-dim">"translate"</span>
+  ]
+}
+</pre>
+</div>
+</div>
+<!-- Bottom CTA in Code Panel -->
+<div class="mt-12 p-8 rounded-3xl bg-gradient-to-br from-pink-500/10 to-transparent border border-pink-500/20 flex items-center justify-between">
+<div>
+<p class="text-white font-bold mb-1">Ready to explore?</p>
+<p class="text-xs text-zinc-400">Test this endpoint in our interactive playground.</p>
+</div>
+<span class="material-symbols-outlined text-primary text-3xl">play_circle</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-black border-t border-zinc-900">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="text-pink-500 font-black text-xl lowercase tracking-tighter">thetha</span>
+<p class="text-xs font-inter uppercase tracking-widest text-zinc-600">© 2024 thetha labs. built for precision.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-xs font-inter uppercase tracking-widest text-zinc-600 hover:text-pink-400 transition-colors opacity-80 hover:opacity-100" href="#">privacy</a>
+<a class="text-xs font-inter uppercase tracking-widest text-zinc-600 hover:text-pink-400 transition-colors opacity-80 hover:opacity-100" href="#">terms</a>
+<a class="text-xs font-inter uppercase tracking-widest text-zinc-600 hover:text-pink-400 transition-colors opacity-80 hover:opacity-100" href="#">security</a>
+<a class="text-xs font-inter uppercase tracking-widest text-zinc-600 hover:text-pink-400 transition-colors opacity-80 hover:opacity-100" href="#">github</a>
+</div>
+</div>
+</footer>
+<!-- Kinetic Background Element -->
+<div class="fixed bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-pink-500/50 to-transparent blur-sm"></div>
+</body></html>

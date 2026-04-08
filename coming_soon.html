@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>thetha ai | coming soon</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#e2e2e2",
+                    "on-primary": "#640039",
+                    "on-primary-fixed": "#3e0022",
+                    "surface-container-lowest": "#0e0e0e",
+                    "tertiary-fixed-dim": "#68e04b",
+                    "surface-bright": "#393939",
+                    "tertiary-fixed": "#84fd64",
+                    "inverse-primary": "#b4136d",
+                    "outline-variant": "#574048",
+                    "inverse-surface": "#e2e2e2",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary-container": "#ff99c2",
+                    "on-tertiary-container": "#053200",
+                    "surface-dim": "#131313",
+                    "surface": "#131313",
+                    "primary-fixed-dim": "#ffb0cd",
+                    "surface-container-high": "#2a2a2a",
+                    "surface-tint": "#ffb0cd",
+                    "on-tertiary-fixed": "#022100",
+                    "on-primary-fixed-variant": "#8c0053",
+                    "error-container": "#93000a",
+                    "on-primary-container": "#570032",
+                    "surface-variant": "#353535",
+                    "inverse-on-surface": "#303030",
+                    "error": "#ffb4ab",
+                    "on-secondary": "#5c1238",
+                    "on-surface-variant": "#debec8",
+                    "tertiary-container": "#2da710",
+                    "on-tertiary-fixed-variant": "#0d5300",
+                    "primary": "#ffb0cd",
+                    "surface-container-low": "#1b1b1b",
+                    "secondary-fixed": "#ffd9e4",
+                    "secondary": "#ffb0cd",
+                    "primary-fixed": "#ffd9e4",
+                    "outline": "#a68992",
+                    "on-error": "#690005",
+                    "tertiary": "#68e04b",
+                    "secondary-fixed-dim": "#ffb0cd",
+                    "background": "#131313",
+                    "primary-container": "#f751a1",
+                    "on-secondary-fixed-variant": "#792a4f",
+                    "on-surface": "#e2e2e2",
+                    "secondary-container": "#7c2c51",
+                    "surface-container": "#1f1f1f",
+                    "on-tertiary": "#063900",
+                    "on-secondary-fixed": "#3e0022",
+                    "surface-container-highest": "#353535"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            color: #e2e2e2;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .fluid-glowing-border {
+            position: relative;
+            background: rgba(19, 19, 19, 0.4);
+            backdrop-filter: blur(20px);
+        }
+
+        .fluid-glowing-border::before {
+            content: "";
+            position: absolute;
+            inset: -1.5px;
+            padding: 1.5px;
+            border-radius: inherit;
+            background: linear-gradient(90deg, transparent, #EC4899, transparent, #EC4899, transparent);
+            background-size: 200% auto;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: scan 4s linear infinite;
+        }
+
+        @keyframes scan {
+            to { background-position: 200% center; }
+        }
+
+        .wave-container {
+            position: fixed;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 400px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 100%, rgba(236, 72, 153, 0.3) 0%, transparent 70%);
+            opacity: 0.6;
+        }
+
+        .pulse-wave {
+            animation: pulse 6s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scaleY(1); opacity: 0.3; }
+            50% { transform: scaleY(1.2); opacity: 0.5; }
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        input::placeholder {
+            color: rgba(226, 226, 226, 0.4);
+            text-transform: lowercase;
+        }
+
+        .hero-glow {
+            text-shadow: 0 0 20px rgba(236, 72, 153, 0.2);
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 px-6 py-3 flex items-center gap-8 rounded-full mt-6 mx-auto max-w-fit border-[1.5px] border-transparent bg-surface/40 backdrop-blur-xl fluid-glowing-border shadow-[0_0_40px_rgba(236,72,153,0.15)] font-['Inter'] lowercase tracking-tight">
+<div class="text-xl font-bold text-[#e2e2e2] [&amp;&gt;span]:text-[#EC4899] [&amp;&gt;span]:drop-shadow-[0_0_8px_rgba(236,72,153,0.6)]">
+            th<span>e</span>th<span>a</span>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-[#e2e2e2] hover:text-[#EC4899] transition-colors hover:scale-105 transition-transform duration-300" href="#">solutions</a>
+<a class="text-[#e2e2e2] hover:text-[#EC4899] transition-colors hover:scale-105 transition-transform duration-300" href="#">pricing</a>
+</nav>
+<button class="bg-primary-container text-on-primary-container px-5 py-2 rounded-full font-medium hover:scale-105 transition-all duration-300 active:scale-95">
+            join waitlist
+        </button>
+</header>
+<!-- Main Content -->
+<main class="flex-grow flex flex-col items-center justify-center px-6 relative z-10 pt-32 pb-20">
+<!-- Hero Section -->
+<div class="text-center max-w-4xl mx-auto space-y-6">
+<h1 class="text-5xl md:text-8xl font-extrabold tracking-tighter lowercase text-on-background hero-glow">
+                thetha is coming
+            </h1>
+<p class="text-lg md:text-2xl font-light tracking-wide lowercase text-on-background/80">
+                the <span class="text-[#EC4899] font-medium">accessibility first</span> ai platform
+            </p>
+</div>
+<!-- Countdown Timer -->
+<div class="mt-20 flex flex-wrap justify-center gap-8 md:gap-24 lowercase">
+<div class="flex flex-col items-center">
+<span class="text-6xl md:text-8xl font-extrabold tracking-tighter text-on-background">24</span>
+<span class="text-xs tracking-[0.2em] text-on-background/40 font-medium mt-2">days</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-6xl md:text-8xl font-extrabold tracking-tighter text-on-background">12</span>
+<span class="text-xs tracking-[0.2em] text-on-background/40 font-medium mt-2">hours</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-6xl md:text-8xl font-extrabold tracking-tighter text-on-background">45</span>
+<span class="text-xs tracking-[0.2em] text-on-background/40 font-medium mt-2">minutes</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="text-6xl md:text-8xl font-extrabold tracking-tighter text-[#EC4899]">08</span>
+<span class="text-xs tracking-[0.2em] text-on-background/40 font-medium mt-2">seconds</span>
+</div>
+</div>
+<!-- CTA Section -->
+<div class="mt-24 w-full max-w-md mx-auto">
+<div class="relative group">
+<div class="flex flex-col md:flex-row items-end gap-4 border-b-2 border-surface-container-lowest focus-within:border-[#EC4899] transition-all duration-500 pb-2">
+<div class="flex-grow w-full">
+<label class="block text-[0.75rem] text-on-background/40 lowercase mb-1 tracking-wider ml-1">enter your email</label>
+<input class="bg-transparent border-none focus:ring-0 w-full text-on-background text-lg py-1 px-1" placeholder="hello@thetha.ai" type="email"/>
+</div>
+<button class="bg-primary-container text-on-primary-container px-8 py-3 rounded-full text-sm font-bold hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(247,81,161,0.3)] active:scale-95 whitespace-nowrap">
+                        join waitlist
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Animated Wave Background -->
+<div class="wave-container">
+<!-- Multiple layers of glowing waves -->
+<svg class="wave pulse-wave" viewbox="0 0 1440 400" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,320L48,304C96,288,192,256,288,250.7C384,245,480,267,576,277.3C672,288,768,288,864,266.7C960,245,1056,203,1152,192C1248,181,1344,203,1392,213.3L1440,224L1440,400L1392,400C1344,400,1248,400,1152,400C1056,400,960,400,864,400C768,400,672,400,576,400C480,400,384,400,288,400C192,400,96,400,48,400L0,400Z" fill="#EC4899" fill-opacity="0.15"></path>
+</svg>
+<svg class="wave pulse-wave" style="animation-delay: -2s; opacity: 0.1;" viewbox="0 0 1440 400" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,224L60,240C120,256,240,288,360,277.3C480,267,600,213,720,202.7C840,192,960,224,1080,224C1200,224,1320,192,1380,176L1440,160L1440,400L1380,400C1320,400,1200,400,1080,400C960,400,840,400,720,400C600,400,480,400,360,400C240,400,120,400,60,400L0,400Z" fill="#EC4899" fill-opacity="0.2"></path>
+</svg>
+<svg class="wave pulse-wave" style="animation-delay: -4s; opacity: 0.05;" viewbox="0 0 1440 400" xmlns="http://www.w3.org/2000/svg">
+<path d="M0,128L80,149.3C160,171,320,213,480,213.3C640,213,800,171,960,160C1120,149,1280,171,1360,181.3L1440,192L1440,400L1360,400C1280,400,1120,400,960,400C800,400,640,400,480,400C320,400,160,400,80,400L0,400Z" fill="#EC4899" fill-opacity="0.3"></path>
+</svg>
+</div>
+<!-- Footer -->
+<footer class="w-full flex flex-col md:flex-row justify-between items-center px-12 py-8 gap-4 bg-transparent text-[0.875rem] lowercase tracking-wide font-['Inter'] relative z-20">
+<div class="text-[#e2e2e2]/60">
+            thetha ai @ 2026
+        </div>
+<div class="flex items-center gap-8">
+<a class="text-[#e2e2e2]/60 hover:text-[#EC4899] transition-all opacity-80 hover:opacity-100" data-icon="github" href="#">
+<span class="material-symbols-outlined">terminal</span>
+</a>
+<a class="text-[#e2e2e2]/60 hover:text-[#EC4899] transition-all opacity-80 hover:opacity-100" data-icon="x" href="#">
+<span class="material-symbols-outlined">close</span>
+</a>
+<a class="text-[#e2e2e2]/60 hover:text-[#EC4899] transition-all opacity-80 hover:opacity-100" data-icon="mail" href="#">
+<span class="material-symbols-outlined">mail</span>
+</a>
+</div>
+</footer>
+</body></html>

@@ -167,7 +167,7 @@
 </div>
 </nav>
 <!-- SideNavBar -->
-<aside class="fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 bg-zinc-950 border-r border-zinc-900 flex flex-col py-6 px-4 gap-4 overflow-y-auto">
+<aside class="hidden lg:flex fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 bg-zinc-950 border-r border-zinc-900 flex-col py-6 px-4 gap-4 overflow-y-auto z-40">
 <div class="mb-4 px-2">
 <div class="text-pink-500 font-bold lowercase font-inter text-sm">documentation</div>
 <div class="text-zinc-600 text-[10px] uppercase tracking-widest mt-1">v2.4.0</div>
@@ -215,16 +215,16 @@
 </div>
 </aside>
 <!-- Main Content Layout -->
-<main class="ml-64 pt-16 min-h-screen">
+<main class="lg:ml-64 pt-16 min-h-screen">
 <div class="grid grid-cols-1 xl:grid-cols-2 min-h-[calc(100vh-4rem)]">
 <!-- Left Side: Documentation Content -->
-<div class="p-12 lg:p-16 max-w-3xl">
+<div class="p-6 lg:p-16 max-w-3xl">
 <nav class="flex items-center gap-2 text-xs text-zinc-500 mb-8 uppercase tracking-widest font-medium">
 <a class="hover:text-primary" href="#">Docs</a>
 <span class="material-symbols-outlined text-sm">chevron_right</span>
 <span class="text-zinc-300">Authentication</span>
 </nav>
-<h1 class="text-5xl lg:text-6xl lowercase tracking-tighter mb-8 leading-tight font-headline font-extrabold">
+<h1 class="text-4xl lg:text-6xl lowercase tracking-tighter mb-6 lg:mb-8 leading-tight font-headline font-extrabold">
                     authentication
                 </h1>
 <div class="space-y-12 text-secondary/90 leading-relaxed font-body">
@@ -264,7 +264,7 @@
 </div>
 </div>
 <!-- Right Side: Code Panel -->
-<div class="bg-[#050505] border-l border-zinc-900/50 p-8 lg:p-12 relative overflow-hidden">
+<div class="bg-[#050505] border-t xl:border-l xl:border-t-0 border-zinc-900/50 p-6 lg:p-12 relative overflow-hidden">
 <!-- Topographic background element (decorative) -->
 <div class="absolute inset-0 opacity-10 pointer-events-none">
 <div class="w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(236,72,153,0.1)_0%,transparent_50%)]"></div>

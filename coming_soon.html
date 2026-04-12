@@ -245,19 +245,19 @@
 <!-- Countdown Timer -->
 <div class="mt-20 flex flex-wrap justify-center gap-8 md:gap-24 lowercase">
 <div class="flex flex-col items-center">
-<span class="text-6xl md:text-8xl font-extrabold tracking-tighter text-on-background">24</span>
+<span id="countdown-days" class="text-6xl md:text-8xl font-extrabold tracking-tighter text-on-background">00</span>
 <span class="text-xs tracking-[0.2em] text-on-background/40 font-medium mt-2">days</span>
 </div>
 <div class="flex flex-col items-center">
-<span class="text-6xl md:text-8xl font-extrabold tracking-tighter text-on-background">12</span>
+<span id="countdown-hours" class="text-6xl md:text-8xl font-extrabold tracking-tighter text-on-background">00</span>
 <span class="text-xs tracking-[0.2em] text-on-background/40 font-medium mt-2">hours</span>
 </div>
 <div class="flex flex-col items-center">
-<span class="text-6xl md:text-8xl font-extrabold tracking-tighter text-on-background">45</span>
+<span id="countdown-minutes" class="text-6xl md:text-8xl font-extrabold tracking-tighter text-on-background">00</span>
 <span class="text-xs tracking-[0.2em] text-on-background/40 font-medium mt-2">minutes</span>
 </div>
 <div class="flex flex-col items-center">
-<span class="text-6xl md:text-8xl font-extrabold tracking-tighter text-[#EC4899]">08</span>
+<span id="countdown-seconds" class="text-6xl md:text-8xl font-extrabold tracking-tighter text-[#EC4899]">00</span>
 <span class="text-xs tracking-[0.2em] text-on-background/40 font-medium mt-2">seconds</span>
 </div>
 </div>
@@ -334,6 +334,35 @@
 </div>
 </div><script>
     document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Countdown Timer Logic (End of February 2027, CAT / Harare time)
+    const targetDate = new Date('2027-02-28T23:59:59+02:00').getTime();
+    
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        document.getElementById('countdown-days').textContent = '00';
+        document.getElementById('countdown-hours').textContent = '00';
+        document.getElementById('countdown-minutes').textContent = '00';
+        document.getElementById('countdown-seconds').textContent = '00';
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('countdown-days').textContent = String(days).padStart(2, '0');
+      document.getElementById('countdown-hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('countdown-minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('countdown-seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
     // FAQ Bot Logic
     const chatToggleBtn = document.getElementById('chat-toggle-btn');
